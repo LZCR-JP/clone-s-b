@@ -1,0 +1,283 @@
+/* ==================================
+   CREATE DINING EVENT
+================================== */
+
+.create-event-page {
+  min-height: 100vh;
+  padding: 45px 20px 65px;
+  background: #fffaf4;
+  color: #29211d;
+}
+
+.create-event-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* BACK LINK */
+
+.event-back-link {
+  display: inline-block;
+  margin-bottom: 35px;
+  color: #74685f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.event-back-link:hover {
+  color: #ff6900;
+}
+
+/* HEADER */
+
+.create-event-header {
+  margin-bottom: 30px;
+}
+
+.event-eyebrow {
+  color: #ff6900;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.create-event-header h1 {
+  font-size: clamp(32px, 5vw, 43px);
+  font-weight: 850;
+  line-height: 1.2;
+  margin: 15px 0;
+  letter-spacing: -1.5px;
+}
+
+.create-event-header h1 span {
+  color: #ff6900;
+}
+
+.create-event-header p {
+  color: #82766d;
+  line-height: 1.7;
+  max-width: 570px;
+  font-size: 15px;
+}
+
+/* FORM CARD */
+
+.create-event-card {
+  background: #ffffff;
+  border: 1px solid #f0e7de;
+  border-radius: 22px;
+  padding: 35px;
+  box-shadow: 0 10px 35px #33221108;
+}
+
+.form-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #f1e9e2;
+}
+
+.form-card-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 7px;
+}
+
+.form-card-header p {
+  font-size: 14px;
+  color: #82766d;
+  margin: 0;
+}
+
+.form-header-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: #fff0df;
+  border-radius: 15px;
+  font-size: 25px;
+}
+
+/* FORM INPUTS */
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.event-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+  min-width: 0;
+}
+
+.event-form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #302722;
+}
+
+.event-input {
+  width: 100%;
+  min-height: 49px;
+  padding: 12px 15px;
+  border: 1px solid #e8ded4;
+  border-radius: 11px;
+  background: #fffdfb;
+  color: #29211d;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+}
+
+.event-input:focus {
+  outline: none;
+  border-color: #ff6900;
+  box-shadow: 0 0 0 3px #ff69001a;
+  background: white;
+}
+
+.event-input::placeholder {
+  color: #b2a69c;
+}
+
+.event-form-group small {
+  color: #988b80;
+  font-size: 12px;
+}
+
+.event-form-row {
+  display: flex;
+  gap: 20px;
+}
+
+/* LOCATION INPUT */
+
+.event-input-wrapper {
+  position: relative;
+}
+
+.event-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  z-index: 1;
+}
+
+.event-input.with-icon {
+  padding-left: 42px;
+}
+
+/* INFORMATION BOX */
+
+.event-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff5e9;
+  border: 1px solid #ffe4c6;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.event-info-box span {
+  font-size: 20px;
+}
+
+.event-info-box p {
+  color: #765e48;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FORM ERRORS */
+
+.event-form-errors {
+  background: #fff0ed;
+  border: 1px solid #f3c5bb;
+  border-radius: 12px;
+  color: #a52c1b;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+}
+
+.event-form-errors ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+/* ACTIONS */
+
+.event-form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 5px;
+}
+
+.event-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: #ff6900;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.event-submit-btn:hover {
+  background: #e85d00;
+  transform: translateY(-2px);
+}
+
+.event-cancel-btn {
+  text-align: center;
+  text-decoration: none;
+  color: #82766d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.event-cancel-btn:hover {
+  color: #ff6900;
+}
+
+/* FOOTER */
+
+.event-footer-note {
+  text-align: center;
+  margin-top: 30px;
+  color: #a29488;
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .create-event-page {
+    padding: 30px 16px 45px;
+  }
+
+  .create-event-card {
+    padding: 22px 18px;
+  }
+
+  .event-form-row {
+    flex-direction: column;
+  }
+
+  .create-event-header h1 {
+    font-size: 32px;
+  }
+}

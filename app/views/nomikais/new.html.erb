@@ -1,59 +1,136 @@
-<div class="container mt-4">
-  <h1>Create a Nomikai</h1>
+<div class="create-event-page">
 
-  <% if @nomikai.errors.any? %>
-    <div class="alert alert-danger">
-      <% @nomikai.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
+  <div class="create-event-container">
+
+    <%# BACK NAVIGATION %>
+    <%= link_to nomikais_path, class: "event-back-link" do %>
+      ← Back to My Dining Events
+    <% end %>
+
+    <%# PAGE HEADER %>
+    <div class="create-event-header">
+      <span class="event-eyebrow">SWIPE & BITE · TOKYO</span>
+
+      <h1>Plan your next <span>team dinner.</span></h1>
+
+      <p>
+        Set up your dining event and invite your colleagues
+        to discover a restaurant everyone will enjoy.
+      </p>
+    </div>
+
+    <%# FORM CARD %>
+    <div class="create-event-card">
+
+      <div class="form-card-header">
+        <div>
+          <h2>Event Details</h2>
+          <p>Tell us a little about your gathering.</p>
+        </div>
+        <span class="form-header-icon">🍽️</span>
+      </div>
+
+      <% if @nomikai.errors.any? %>
+        <div class="event-form-errors">
+          <strong>Please check the following:</strong>
+          <ul>
+            <% @nomikai.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
+
+      <%= form_with model: @nomikai, class: "event-form" do |f| %>
+
+        <%# EVENT NAME %>
+        <div class="event-form-group">
+          <%= f.label :name, "Event name" %>
+          <%= f.text_field :name,
+              class: "event-input",
+              placeholder: "e.g. Friday Team Dinner",
+              required: true %>
+          <small>Give your dining event a name.</small>
+        </div>
+
+        <%# LOCATION %>
+        <div class="event-form-group">
+          <%= f.label :area, "Preferred area in Tokyo" %>
+
+          <div class="event-input-wrapper">
+            <span class="event-input-icon">📍</span>
+            <%= f.text_field :area,
+                class: "event-input with-icon",
+                placeholder: "e.g. Shibuya, Shinjuku, Marunouchi",
+                required: true %>
+          </div>
+
+          <small>Where would your team like to eat?</small>
+        </div>
+
+        <%# DATE AND TIME %>
+        <div class="event-form-group">
+          <%= f.label :event_date, "Event date and time" %>
+          <%= f.datetime_local_field :event_date,
+              class: "event-input",
+              min: Time.current.strftime("%Y-%m-%dT%H:%M"),
+              required: true %>
+          <small>When are you planning to meet?</small>
+        </div>
+
+        <%# GROUP SIZE AND BUDGET %>
+        <div class="event-form-row">
+
+          <div class="event-form-group">
+            <%= f.label :group_size, "Expected group size" %>
+            <%= f.number_field :group_size,
+                class: "event-input",
+                min: 1,
+                placeholder: "e.g. 8",
+                required: true %>
+            <small>Including the host.</small>
+          </div>
+
+          <div class="event-form-group">
+            <%= f.label :budget_per_person, "Budget per person (¥)" %>
+            <%= f.number_field :budget_per_person,
+                class: "event-input",
+                min: 1,
+                step: 500,
+                placeholder: "e.g. 5000" %>
+            <small>Leave blank if flexible.</small>
+          </div>
+
+        </div>
+
+        <%# INFORMATION BOX %>
+        <div class="event-info-box">
+          <span>💡</span>
+          <p>
+            Once your event is created, you can share an invitation
+            link with colleagues. They can join and swipe through
+            restaurant preferences.
+          </p>
+        </div>
+
+        <%# SUBMIT %>
+        <div class="event-form-actions">
+          <%= f.submit "Create Dining Event →",
+              class: "event-submit-btn" %>
+
+          <%= link_to "Cancel",
+              nomikais_path,
+              class: "event-cancel-btn" %>
+        </div>
+
+      <% end %>
+
     </div>
-  <% end %>
 
-  <%= form_with model: @nomikai do |f| %>
+    <p class="event-footer-note">
+      Good food. Better teams. Better together.
+    </p>
 
-    <div class="mb-3">
-      <%= f.label :name, "Nomikai Name" %>
-      <%= f.text_field :name,
-                       class: "form-control",
-                       required: true %>
-    </div>
+  </div>
 
-    <div class="mb-3">
-      <%= f.label :area, "Location" %>
-      <%= f.text_field :area,
-                       placeholder: "e.g. Shibuya",
-                       class: "form-control",
-                       required: true %>
-    </div>
-
-    <div class="mb-3">
-      <%= f.label :event_date, "Date & Time" %>
-      <%= f.datetime_local_field :event_date,
-                                 class: "form-control",
-                                 required: true %>
-    </div>
-
-    <div class="mb-3">
-      <%= f.label :group_size, "Number of People" %>
-      <%= f.number_field :group_size,
-                         min: 1,
-                         class: "form-control",
-                         required: true %>
-    </div>
-
-    <div class="mb-3">
-      <%= f.label :budget_per_person, "Budget per Person (JPY)" %>
-      <%= f.number_field :budget_per_person,
-                         min: 1,
-                         class: "form-control",
-                         required: true %>
-    </div>
-
-    <%= f.submit "Create Nomikai",
-                 class: "btn btn-primary" %>
-
-  <% end %>
-
-  <%= link_to "Back", nomikais_path,
-              class: "btn btn-outline-secondary mt-3" %>
 </div>
