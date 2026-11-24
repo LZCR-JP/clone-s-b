@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # Host side (logged in)
-  resources :nomikais, only: %i[index new create show destroy] do
+  resources :nomikais do
     member do
       patch :close
     end

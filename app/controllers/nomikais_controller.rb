@@ -29,6 +29,21 @@ class NomikaisController < ApplicationController
     end
   end
 
+  def edit
+    @nomikai = current_user.nomikais.find(params[:id])
+  end
+
+  def update
+    @nomikai = current_user.nomikais.find(params[:id])
+
+    if @nomikai.update(nomikai_params)
+      redirect_to nomikai_path(@nomikai),
+                  notice: "Gathering successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @nomikai.destroy!
 
