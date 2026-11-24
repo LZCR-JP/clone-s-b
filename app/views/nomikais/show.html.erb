@@ -11,11 +11,26 @@
   <hr>
 
   <h3>Invitation Link</h3>
+  <div data-controller="clipboard">
+    <input
+      type="text"
+      class="form-control"
+      value="<%= join_url(@nomikai.share_token) %>"
+      readonly
+      data-clipboard-target="source">
 
-  <input type="text"
-         class="form-control"
-         value="<%= join_url(@nomikai.share_token) %>"
-         readonly>
+    <button
+      type="button"
+      class="btn btn-success"
+      data-action="click->clipboard#copy">
+      📋 Copy Invitation Link
+    </button>
+
+    <small
+      class="text-success ms-2"
+      data-clipboard-target="message">
+    </small>
+  </div>
 
   <hr>
 
