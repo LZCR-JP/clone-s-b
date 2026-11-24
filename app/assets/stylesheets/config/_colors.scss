@@ -1,6 +1,9 @@
-// Define variables for your color scheme
 
-// For example:
+/* =========================================
+   LE WAGON DEFAULT COLORS
+   Keep these for Bootstrap compatibility
+========================================= */
+
 $red: #FD1015;
 $blue: #0D6EFD;
 $yellow: #FFC65A;
@@ -8,3 +11,37 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+
+/* =========================================
+   SWIPE & BITE BRAND COLORS
+========================================= */
+
+/* Primary brand */
+$brand-orange: #FF6900;
+$brand-orange-hover: #E85D00;
+$brand-cream: #FFFAF4;
+
+/* Text */
+$text-primary: #29211D;
+$text-secondary: #82766D;
+$text-muted: #A19489;
+
+/* Backgrounds */
+$background-white: #FFFFFF;
+$background-cream: #FFFAF4;
+$background-soft: #FFF0DF;
+
+/* Borders */
+$border-light: #F0E7DE;
+$border-soft: #F1E9E2;
+
+/* Status colors */
+$success: #27814C;
+$success-light: #E8F7ED;
+
+$danger: #DC2626;
+$danger-light: #FEF2F2;
+
+$neutral: #777777;
+$neutral-light: #EEEEEE;
