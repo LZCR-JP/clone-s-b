@@ -41,67 +41,78 @@
         </div>
       <% end %>
 
-      <%= form_with model: @nomikai, class: "event-form" do |f| %>
+      <%= simple_form_for @nomikai, html: { class: "event-form" } do |f| %>
 
         <%# EVENT NAME %>
-        <div class="event-form-group">
-          <%= f.label :name, "Event name" %>
-          <%= f.text_field :name,
-              class: "event-input",
+        <%= f.input :name,
+              label: "Event name",
               placeholder: "e.g. Friday Team Dinner",
-              required: true %>
-          <small>Give your dining event a name.</small>
-        </div>
+              hint: "Give your dining event a name.",
+              required: true,
+              wrapper_html: { class: "event-form-group" },
+              input_html: { class: "event-input" } %>
 
-        <%# LOCATION %>
+        <%# LOCATION (custom icon, so we build the layout ourselves) %>
         <div class="event-form-group">
           <%= f.label :area, "Preferred area in Tokyo" %>
 
           <div class="event-input-wrapper">
             <span class="event-input-icon">📍</span>
-            <%= f.text_field :area,
-                class: "event-input with-icon",
-                placeholder: "e.g. Shibuya, Shinjuku, Marunouchi",
-                required: true %>
+            <%= f.input_field :area,
+                  class: "event-input with-icon",
+                  placeholder: "e.g. Shibuya, Shinjuku, Marunouchi",
+                  required: true %>
           </div>
 
+          <%= f.error :area %>
           <small>Where would your team like to eat?</small>
         </div>
 
         <%# DATE AND TIME %>
-        <div class="event-form-group">
-          <%= f.label :event_date, "Event date and time" %>
-          <%= f.datetime_local_field :event_date,
-              class: "event-input",
-              min: Time.current.strftime("%Y-%m-%dT%H:%M"),
-              required: true %>
-          <small>When are you planning to meet?</small>
-        </div>
+        <%= f.input :event_date,
+              as: :datetime,
+              html5: true,
+              label: "Event date and time",
+              hint: "When are you planning to meet?",
+              required: true,
+              wrapper_html: { class: "event-form-group" },
+              input_html: { class: "event-input",
+                            min: Time.current.strftime("%Y-%m-%dT%H:%M") } %>
 
         <%# GROUP SIZE AND BUDGET %>
-        <div class="event-form-row">
-
-          <div class="event-form-group">
-            <%= f.label :group_size, "Expected group size" %>
-            <%= f.number_field :group_size,
-                class: "event-input",
-                min: 1,
-                placeholder: "e.g. 8",
-                required: true %>
-            <small>Including the host.</small>
+        <div data-controller="range-output">
+            <%= f.input :group_size,
+                  as: :range,
+                  label: "Expected group size",
+                  hint: "Including the host.",
+                  wrapper_html: { class: "event-form-group" },
+                  input_html: { class: "event-input",
+                                min: 2, max: 50, step: 1,
+                                data: { range_output_target: "input",
+                                        action: "input->range-output#update" } } %>
+            <output data-range-output-target="output"></output>
           </div>
 
-          <div class="event-form-group">
-            <%= f.label :budget_per_person, "Budget per person (¥)" %>
-            <%= f.number_field :budget_per_person,
-                class: "event-input",
-                min: 1,
-                step: 500,
-                placeholder: "e.g. 5000" %>
-            <small>Leave blank if flexible.</small>
-          </div>
+          <div data-controller="range-output" data-range-output-prefix-value="¥">
+            <%= f.input :budget_per_person,
+                  as: :range,
+                  label: "Budget per person",
+                  required: false,
+                  wrapper_html: { class: "event-form-group" },
+                  input_html: { class: "event-input",
+                                min: 2000, max: 15000, step: 500,
+                                data: { range_output_target: "input",
+                                        action: "input->range-output#update" } } %>
 
-        </div>
+            <output data-range-output-target="output"></output>
+
+            <label>
+              <%= check_box_tag :flexible, "1", @nomikai.persisted? && @nomikai.budget_per_person.nil?,
+                    data: { range_output_target: "toggle",
+                            action: "change->range-output#update" } %>
+              I'm flexible
+            </label>
+          </div>
 
         <%# INFORMATION BOX %>
         <div class="event-info-box">
