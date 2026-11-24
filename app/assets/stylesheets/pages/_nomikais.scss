@@ -1,0 +1,314 @@
+/* MY NOMIKAIS DASHBOARD */
+
+.nomikais-page {
+  min-height: 100vh;
+  padding: 55px 7%;
+  background: #fffaf4;
+  color: #29211d;
+}
+
+/* HEADER */
+
+.nomikais-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.dashboard-eyebrow {
+  color: #f36b16;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.nomikais-header h1 {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.dashboard-subtitle {
+  color: #82766d;
+  margin-top: 10px;
+}
+
+/* BUTTONS */
+
+.create-nomikai-btn {
+  display: inline-block;
+  background: #ff6900;
+  color: white !important;
+  padding: 14px 23px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.create-nomikai-btn:hover {
+  background: #e85d00;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.create-nomikai-btn span {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* STATISTICS */
+
+.nomikai-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.nomikai-stat-card {
+  background: white;
+  border: 1px solid #f0e7de;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 15px #33221108;
+}
+
+.stat-icon {
+  font-size: 25px;
+}
+
+.nomikai-stat-card p {
+  color: #82766d;
+  font-size: 14px;
+  margin: 15px 0 5px;
+}
+
+.nomikai-stat-card h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* EVENT LIST HEADER */
+
+.nomikai-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.nomikai-list-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.nomikai-list-header p {
+  color: #82766d;
+  margin: 7px 0 0;
+}
+
+.event-count {
+  background: #fff0df;
+  color: #e9650b;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* EVENT GRID */
+
+.nomikai-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.nomikai-card {
+  background: white;
+  border: 1px solid #f0e7de;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 5px 20px #33221108;
+  transition: 0.2s ease;
+}
+
+.nomikai-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px #33221112;
+}
+
+.nomikai-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.nomikai-category {
+  color: #a19489;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.nomikai-status {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nomikai-status.open {
+  color: #27814c;
+  background: #e8f7ed;
+}
+
+.nomikai-status.closed {
+  color: #777;
+  background: #eeeeee;
+}
+
+.nomikai-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* EVENT DETAILS */
+
+.nomikai-details {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.nomikai-details p {
+  color: #675d55;
+  font-size: 14px;
+  margin: 0;
+}
+
+.nomikai-details p span {
+  margin-right: 8px;
+}
+
+/* RESPONSE PROGRESS */
+
+.nomikai-progress {
+  border-top: 1px solid #f1e9e2;
+  padding-top: 20px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #82766d;
+  margin-bottom: 10px;
+}
+
+.progress-label strong {
+  color: #29211d;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: #f1e9e2;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ff6900;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+/* CARD FOOTER */
+
+.nomikai-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+
+.view-nomikai-btn {
+  color: #f36b16;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.view-nomikai-btn:hover {
+  color: #c94d00;
+}
+
+/* EMPTY STATE */
+
+.nomikai-empty-state {
+  text-align: center;
+  background: white;
+  border: 1px dashed #edcbb1;
+  border-radius: 20px;
+  padding: 65px 25px;
+  max-width: 650px;
+  margin: 40px auto;
+}
+
+.empty-icon {
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+.nomikai-empty-state h2 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.nomikai-empty-state p {
+  max-width: 430px;
+  margin: 15px auto 25px;
+  color: #82766d;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .nomikais-page {
+    padding: 35px 5%;
+  }
+
+  .nomikais-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nomikais-header h1 {
+    font-size: 30px;
+  }
+
+  .nomikai-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .nomikai-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nomikai-list-header h2 {
+    font-size: 21px;
+  }
+}

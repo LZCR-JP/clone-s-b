@@ -10,7 +10,7 @@ class Nomikai < ApplicationRecord
   has_secure_token :share_token
 
   validates :name, :area, :event_date, presence: true
-  validates :group_size, numericality: { only_integer: true, greater_than: 0 }
+  validates :group_size, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 50 }
   validates :budget_per_person, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
   validates :latitude, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }, allow_nil: true
   validates :longitude, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }, allow_nil: true

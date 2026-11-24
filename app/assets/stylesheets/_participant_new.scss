@@ -1,0 +1,160 @@
+.participant-join {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #292724;
+
+  .join-brand {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 4px;
+
+      span {
+        color: #d96b35;
+      }
+    }
+
+    p {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #89827b;
+    }
+  }
+
+  .join-header {
+    margin-bottom: 24px;
+
+    h1 {
+      font-size: 34px;
+      font-weight: 800;
+      margin: 8px 0;
+    }
+
+    p {
+      color: #77716b;
+      font-size: 14px;
+    }
+  }
+
+  .join-label {
+    color: #d96b35;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .join-event-card,
+  .join-form-card {
+    background: white;
+    border: 1px solid #eee9e3;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .join-event-card {
+    background: #faf6f1;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+  }
+
+  .join-event-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    p {
+      font-size: 13px;
+      color: #69635d;
+      margin: 0;
+    }
+
+    i {
+      color: #d96b35;
+      margin-right: 6px;
+    }
+  }
+
+  .join-form-card {
+    h2 {
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .form-description {
+      color: #89827b;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .form-control {
+      border: 1px solid #e8e1d9;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  .dietary-section {
+    margin: 28px 0;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    p {
+      color: #89827b;
+      font-size: 13px;
+    }
+
+    .collection_check_boxes {
+      font-weight: 400;
+      margin-left: 6px;
+    }
+  }
+
+  .btn-join-event {
+    width: 100%;
+    background: #d96b35;
+    color: white;
+    border: 0;
+    border-radius: 9px;
+    padding: 14px;
+    font-weight: 700;
+    margin-top: 16px;
+
+    &:hover {
+      background: #bd5728;
+      color: white;
+    }
+  }
+
+  .join-footer {
+    text-align: center;
+    color: #aaa29a;
+    font-size: 12px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 576px) {
+    .join-header h1 {
+      font-size: 28px;
+    }
+
+    .join-event-details {
+      grid-template-columns: 1fr;
+    }
+  }
+}
