@@ -1,23 +1,151 @@
-<div class="container mt-4">
-  <h1>My Nomikais</h1>
+<div class="nomikais-page">
 
-  <%= link_to "Create a Nomikai",
-              new_nomikai_path,
-              class: "btn btn-primary" %>
+  <%# DASHBOARD HEADER %>
+  <div class="nomikais-header">
+    <div>
+      <p class="dashboard-eyebrow">YOUR DINING DASHBOARD</p>
+      <h1>My Dining Events</h1>
+      <p class="dashboard-subtitle">
+        Manage your team's dining experience in one place.
+      </p>
+    </div>
 
-  <div class="mt-4">
-    <% @nomikais.each do |nomikai| %>
-      <div class="card p-3 mb-3">
-        <h3><%= nomikai.name %></h3>
-
-        <p>Area: <%= nomikai.area %></p>
-        <p>Guests: <%= nomikai.group_size %></p>
-        <p>Status: <%= nomikai.status %></p>
-
-        <%= link_to "View Nomikai",
-                    nomikai_path(nomikai),
-                    class: "btn btn-outline-primary" %>
-      </div>
+    <%= link_to new_nomikai_path, class: "create-nomikai-btn" do %>
+      <span>＋</span> Create event
     <% end %>
   </div>
+
+  <%# SUMMARY CARDS %>
+  <div class="nomikai-stats">
+
+    <div class="nomikai-stat-card">
+      <span class="stat-icon">🍽️</span>
+      <p>Total Events</p>
+      <h2><%= @nomikais.size %></h2>
+    </div>
+
+    <div class="nomikai-stat-card">
+      <span class="stat-icon">🔓</span>
+      <p>Open</p>
+      <h2><%= @nomikais.count { |n| n.status == "open" } %></h2>
+    </div>
+
+    <div class="nomikai-stat-card">
+      <span class="stat-icon">🔒</span>
+      <p>Closed</p>
+      <h2><%= @nomikais.count { |n| n.status == "closed" } %></h2>
+    </div>
+
+  </div>
+
+  <%# NOMIKAI LIST %>
+  <div class="nomikai-list-header">
+    <div>
+      <h2>Your Events</h2>
+      <p>Manage and track your team gatherings.</p>
+    </div>
+    <span class="event-count">
+      <%= @nomikais.size %> events
+    </span>
+  </div>
+
+  <% if @nomikais.any? %>
+
+    <div class="nomikai-grid">
+
+      <% @nomikais.each do |nomikai| %>
+
+        <% participants = nomikai.participants.to_a %>
+        <% completed = participants.count { |p| p.completed_at.present? } %>
+
+        <div class="nomikai-card">
+
+          <div class="nomikai-card-top">
+            <span class="nomikai-category">TEAM GATHERING</span>
+
+            <span class="nomikai-status <%= nomikai.status %>">
+              <%= nomikai.status.capitalize %>
+            </span>
+          </div>
+
+          <h3><%= nomikai.name %></h3>
+
+          <div class="nomikai-details">
+
+            <p>
+              <span>📍</span>
+              <%= nomikai.area %>
+            </p>
+
+            <p>
+              <span>📅</span>
+              <%= nomikai.event_date.strftime("%B %d, %Y · %H:%M") %>
+            </p>
+
+            <p>
+              <span>👥</span>
+              <%= participants.size %> joined ·
+              <%= nomikai.group_size %> expected
+            </p>
+
+            <% if nomikai.budget_per_person.present? %>
+              <p>
+                <span>💴</span>
+                ¥<%= number_with_delimiter(nomikai.budget_per_person) %>
+                / person
+              </p>
+            <% end %>
+
+          </div>
+
+          <%# RESPONSE PROGRESS %>
+          <div class="nomikai-progress">
+            <div class="progress-label">
+              <span>Responses completed</span>
+              <strong>
+                <%= completed %>/<%= participants.size %>
+              </strong>
+            </div>
+
+            <div class="progress-track">
+              <div
+                class="progress-fill"
+                style="width: <%= participants.any? ? (completed.to_f / participants.size * 100).round : 0 %>%">
+              </div>
+            </div>
+          </div>
+
+          <div class="nomikai-card-footer">
+            <%= link_to "View Details →",
+                        nomikai_path(nomikai),
+                        class: "view-nomikai-btn" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  <% else %>
+
+    <%# EMPTY STATE %>
+    <div class="nomikai-empty-state">
+      <div class="empty-icon">🍜</div>
+
+      <h2>No Dining Events yet!</h2>
+
+      <p>
+        Your next team dinner starts here.
+        Create your first Event and invite your colleagues
+        to find the perfect restaurant together.
+      </p>
+
+      <%= link_to "Create Your First Dining Event →",
+                  new_nomikai_path,
+                  class: "create-nomikai-btn" %>
+    </div>
+
+  <% end %>
+
 </div>

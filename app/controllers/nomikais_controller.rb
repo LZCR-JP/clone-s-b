@@ -3,7 +3,9 @@ class NomikaisController < ApplicationController
   before_action :set_nomikai, only: %i[show destroy close]
 
   def index
-    @nomikais = current_user.nomikais.order(created_at: :desc)
+    @nomikais = current_user.nomikais
+                            .includes(:participants)
+                            .order(created_at: :desc)
   end
 
   def show
