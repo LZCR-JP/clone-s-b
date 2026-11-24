@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  #Colleague side (no account, identified by tokens)
+  # Colleague side (no account, identified by tokens)
   get "join/:share_token", to: "participants#new", as: :join
   post "join/:share_token", to: "participants#create"
 
