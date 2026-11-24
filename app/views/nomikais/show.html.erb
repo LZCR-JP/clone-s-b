@@ -1,0 +1,60 @@
+<div class="container mt-4">
+
+  <h1><%= @nomikai.name %></h1>
+
+  <p>Area: <%= @nomikai.area %></p>
+  <p>Date: <%= @nomikai.event_date.strftime("%B %d, %Y - %H:%M") %></p>
+  <p>Group Size: <%= @nomikai.group_size %></p>
+  <p>Budget: ¥<%= @nomikai.budget_per_person %></p>
+  <p>Status: <%= @nomikai.status %></p>
+
+  <hr>
+
+  <h3>Invitation Link</h3>
+
+  <input type="text"
+         class="form-control"
+         value="<%= join_url(@nomikai.share_token) %>"
+         readonly>
+
+  <hr>
+
+  <h3>Participants</h3>
+
+  <p>
+    <%= @participants.where.not(completed_at: nil).count %>
+    / <%= @nomikai.group_size %> completed
+  </p>
+
+  <% @participants.each do |participant| %>
+    <div class="card p-3 mb-2">
+      <strong><%= participant.nickname %></strong>
+
+      <p>
+        <% if participant.completed_at.present? %>
+          Completed
+        <% else %>
+          Pending
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+
+  <% if @nomikai.status == "open" %>
+    <%= button_to "Close Nomikai",
+                  close_nomikai_path(@nomikai),
+                  method: :patch,
+                  class: "btn btn-warning" %>
+  <% end %>
+
+  <%= button_to "Delete Nomikai",
+                nomikai_path(@nomikai),
+                method: :delete,
+                class: "btn btn-danger mt-3",
+                form: { data: { turbo_confirm: "Are you sure?" } } %>
+
+  <%= link_to "Back to My Nomikais",
+              nomikais_path,
+              class: "btn btn-outline-secondary mt-3" %>
+
+</div>
