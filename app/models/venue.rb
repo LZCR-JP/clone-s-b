@@ -1,3 +1,5 @@
 class Venue < ApplicationRecord
-  has_many :candidates
+  has_many :candidates, dependent: :destroy
+
+  validates :google_place_id, presence: true, uniquness: true
 end
