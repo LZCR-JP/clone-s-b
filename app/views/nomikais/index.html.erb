@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h1>My Nomikais</h1>
+
+  <%= link_to "Create a Nomikai",
+              new_nomikai_path,
+              class: "btn btn-primary" %>
+
+  <div class="mt-4">
+    <% @nomikais.each do |nomikai| %>
+      <div class="card p-3 mb-3">
+        <h3><%= nomikai.name %></h3>
+
+        <p>Area: <%= nomikai.area %></p>
+        <p>Guests: <%= nomikai.group_size %></p>
+        <p>Status: <%= nomikai.status %></p>
+
+        <%= link_to "View Nomikai",
+                    nomikai_path(nomikai),
+                    class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

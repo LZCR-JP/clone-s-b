@@ -1,0 +1,66 @@
+<div class="container mt-4">
+
+  <h1>Find Your Vibe</h1>
+
+  <% if @current_card.present? %>
+
+    <p>
+      <%= @completed_count %> /
+      <%= @total_cards %> completed
+    </p>
+
+    <div class="progress mb-4">
+      <div class="progress-bar"
+           style="width: <%= @completed_count.to_f / @total_cards * 100 %>%">
+      </div>
+    </div>
+
+    <div class="card p-4">
+
+      <% if @current_card.vibe_card.image_url.present? %>
+        <%= image_tag @current_card.vibe_card.image_url,
+                      class: "img-fluid rounded mb-3" %>
+      <% end %>
+
+      <h2><%= @current_card.vibe_card.title %></h2>
+
+      <p><%= @current_card.vibe_card.description %></p>
+
+      <div class="d-flex gap-3">
+
+        <%= button_to "Dislike",
+                      participant_swipes_path(@participant.token),
+                      method: :post,
+                      params: {
+                        nomikai_vibe_card_id: @current_card.id,
+                        liked: false
+                      },
+                      class: "btn btn-danger" %>
+
+        <%= button_to "Like",
+                      participant_swipes_path(@participant.token),
+                      method: :post,
+                      params: {
+                        nomikai_vibe_card_id: @current_card.id,
+                        liked: true
+                      },
+                      class: "btn btn-success" %>
+
+      </div>
+    </div>
+
+  <% else %>
+
+    <h2>All Done!</h2>
+
+    <p>Your preferences have been saved.</p>
+
+    <p>The organizer will use your preferences
+       to find the best venue.</p>
+
+    <%= link_to "Back",
+                participant_path(@participant.token),
+                class: "btn btn-primary" %>
+
+  <% end %>
+</div>

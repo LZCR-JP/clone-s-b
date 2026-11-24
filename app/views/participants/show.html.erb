@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h1>Welcome, <%= @participant.nickname %>!</h1>
+
+  <h3><%= @nomikai.name %></h3>
+
+  <p>Location: <%= @nomikai.area %></p>
+  <p>Your budget: ¥<%= @participant.budget_max %></p>
+
+  <p>
+    Dietary restrictions:
+    <%= @participant.restrictions.join(", ").presence || "None" %>
+  </p>
+
+  <p>
+    Non-drinker:
+    <%= @participant.non_drinker ? "Yes" : "No" %>
+  </p>
+
+  <% if @nomikai.status == "open" %>
+    <%= link_to "Start Swiping",
+                participant_swipes_path(@participant.token),
+                class: "btn btn-primary" %>
+  <% else %>
+    <p>This nomikai is closed.</p>
+  <% end %>
+</div>
