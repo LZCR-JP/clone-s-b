@@ -9,7 +9,7 @@
     <p class="text-danger"><%= message %></p>
   <% end %>
 
-  <%= form_with model: @participant,
+  <%= simple_form_for @participant,
                 url: join_path(@nomikai.share_token) do |f| %>
 
     <div class="mb-3">
