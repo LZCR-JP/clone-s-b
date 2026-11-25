@@ -1,0 +1,1676 @@
+[
+  {
+    "source_key": "local-2ddf75cfad2a5a4e6fef9c9f",
+    "title": "Warm Bistro Seating",
+    "description": "Warm Bistro Seating. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 3,
+    "max_group_size": 12,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "modern": 55,
+      "privacy": 35,
+      "traditional": 25,
+      "cozy": 85,
+      "outdoor": 0
+    },
+    "filename": "01-warm-bistro-seating.jpg",
+    "original_filename": "0006104407E2_354x354s.jpg",
+    "original_size": [
+      354,
+      354
+    ],
+    "review_status": "reserve",
+    "review_note": "Low resolution",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-a23b2c60dd5292f7a355e5b7",
+    "title": "Modern Casual Bar",
+    "description": "Modern Casual Bar. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "bar",
+    "min_budget": 3000,
+    "max_budget": 7000,
+    "min_group_size": 3,
+    "max_group_size": 20,
+    "vibe_scores": {
+      "luxury": 35,
+      "casual": 80,
+      "modern": 70,
+      "privacy": 15,
+      "traditional": 20,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "02-modern-casual-bar.jpg",
+    "original_filename": "1-121.jpg",
+    "original_size": [
+      1960,
+      1100
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-7aa605f2bd906c556e105fc8",
+    "title": "Taco Plate",
+    "description": "Taco Plate. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "mexican",
+    "min_budget": 2000,
+    "max_budget": 5000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "03-taco-plate.jpg",
+    "original_filename": "1.jpg",
+    "original_size": [
+      720,
+      720
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-9f680d7ce7ae4e0c642162bc",
+    "title": "Red Lit Pub",
+    "description": "Red Lit Pub. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "bar",
+    "min_budget": 3000,
+    "max_budget": 7000,
+    "min_group_size": 3,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "modern": 70,
+      "privacy": 20,
+      "traditional": 15,
+      "cozy": 60,
+      "outdoor": 0
+    },
+    "filename": "04-red-lit-pub.jpg",
+    "original_filename": "11261700700.jpg",
+    "original_size": [
+      616,
+      600
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-136ed9b97f43dcab41961f85",
+    "title": "Busy Japanese Counter",
+    "description": "Busy Japanese Counter. Illustrative people preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "people",
+    "cuisine": "izakaya",
+    "min_budget": 2000,
+    "max_budget": 5000,
+    "min_group_size": 2,
+    "max_group_size": 8,
+    "vibe_scores": {
+      "luxury": 15,
+      "casual": 95,
+      "lively": 85,
+      "modern": 25,
+      "privacy": 10,
+      "traditional": 80,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "05-busy-japanese-counter.jpg",
+    "original_filename": "1733981608-067661f2b70a341ac4e6dabc5df6cdf9.jpg",
+    "original_size": [
+      1500,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-bf8cc6af8b0974e00e29b53f",
+    "title": "Lively Restaurant Tables",
+    "description": "Lively Restaurant Tables. Illustrative people preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "people",
+    "cuisine": "unspecified",
+    "min_budget": 3000,
+    "max_budget": 7000,
+    "min_group_size": 3,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 35,
+      "casual": 80,
+      "lively": 75,
+      "modern": 70,
+      "privacy": 15,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "06-lively-restaurant-tables.jpg",
+    "original_filename": "20200203140043c5c.jpg",
+    "original_size": [
+      960,
+      1280
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-5f7122b7f78b2aa801f88a2d",
+    "title": "Neon Izakaya Counter",
+    "description": "Neon Izakaya Counter. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "izakaya",
+    "min_budget": 2000,
+    "max_budget": 5000,
+    "min_group_size": 2,
+    "max_group_size": 12,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "modern": 85,
+      "privacy": 20,
+      "traditional": 15,
+      "cozy": 60,
+      "outdoor": 0
+    },
+    "filename": "07-neon-izakaya-counter.jpg",
+    "original_filename": "20221006160211495.jpg",
+    "original_size": [
+      1470,
+      980
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-b6eb677dd58f977c46889bbb",
+    "title": "Casual Noodle Set",
+    "description": "Casual Noodle Set. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "asian",
+    "min_budget": 1000,
+    "max_budget": 3000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 10,
+      "casual": 95
+    },
+    "filename": "08-casual-noodle-set.jpg",
+    "original_filename": "20250721074833.jpg",
+    "original_size": [
+      800,
+      600
+    ],
+    "review_status": "reserve",
+    "review_note": "Individual set rather than group meal",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-82222881e3b7fd80d665b556",
+    "title": "Blue Cocktail Lounge",
+    "description": "Blue Cocktail Lounge. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "bar",
+    "min_budget": 4000,
+    "max_budget": 12000,
+    "min_group_size": 2,
+    "max_group_size": 12,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "modern": 85,
+      "privacy": 20,
+      "traditional": 15,
+      "cozy": 60,
+      "outdoor": 0
+    },
+    "filename": "09-blue-cocktail-lounge.jpg",
+    "original_filename": "202604_Suikyotei_MainSP.jpg",
+    "original_size": [
+      750,
+      496
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-05756d42b005813ed0f9d3e1",
+    "title": "Sushi Lunch Set",
+    "description": "Sushi Lunch Set. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "sushi",
+    "min_budget": 1000,
+    "max_budget": 4000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 10,
+      "casual": 95
+    },
+    "filename": "10-sushi-lunch-set.jpg",
+    "original_filename": "20261124-00000001-matomeshi-000-1-view.jpg",
+    "original_size": [
+      427,
+      640
+    ],
+    "review_status": "reserve",
+    "review_note": "Individual set; small image",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-43c54ce7ccc83e6e158c27f3",
+    "title": "Korean Shared Table",
+    "description": "Korean Shared Table. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "korean",
+    "min_budget": 2500,
+    "max_budget": 6000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "11-korean-shared-table.jpg",
+    "original_filename": "21eb36f9ad017d707a30d57ac33b3530.jpeg",
+    "original_size": [
+      680,
+      1022
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-b31f395b2d09a4bb1a8ba648",
+    "title": "Tacos and Drinks",
+    "description": "Tacos and Drinks. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "mexican",
+    "min_budget": 3000,
+    "max_budget": 7000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "12-tacos-and-drinks.jpg",
+    "original_filename": "230410_Mole_image-07.webp",
+    "original_size": [
+      1920,
+      1280
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-f29e51f9efe21b2f1e21c35a",
+    "title": "Shared Grill Feast",
+    "description": "Shared Grill Feast. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "unspecified",
+    "min_budget": 3000,
+    "max_budget": 9000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "13-shared-grill-feast.jpg",
+    "original_filename": "234abe076a808b09120fd2d9b2b5488e.jpg",
+    "original_size": [
+      3000,
+      2399
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-cf0f4c2851a396d06cb96ae3",
+    "title": "Refined Japanese Counter",
+    "description": "Refined Japanese Counter. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "japanese",
+    "min_budget": 6000,
+    "max_budget": 20000,
+    "min_group_size": 2,
+    "max_group_size": 8,
+    "vibe_scores": {
+      "luxury": 85,
+      "casual": 25,
+      "modern": 65,
+      "privacy": 15,
+      "traditional": 70,
+      "cozy": 75,
+      "outdoor": 0
+    },
+    "filename": "14-refined-japanese-counter.jpg",
+    "original_filename": "23c538dcf51e20e3acec2e32c335a8.jpg",
+    "original_size": [
+      640,
+      480
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-16e4f3b42ef8794c99306594",
+    "title": "Dark Teppanyaki Counter",
+    "description": "Dark Teppanyaki Counter. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "teppanyaki",
+    "min_budget": 8000,
+    "max_budget": 25000,
+    "min_group_size": 2,
+    "max_group_size": 8,
+    "vibe_scores": {
+      "luxury": 85,
+      "casual": 25,
+      "modern": 65,
+      "privacy": 15,
+      "traditional": 70,
+      "cozy": 75,
+      "outdoor": 0
+    },
+    "filename": "15-dark-teppanyaki-counter.jpg",
+    "original_filename": "3372_4334_ph1.webp",
+    "original_size": [
+      1000,
+      611
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-0577a5d12d28ce4aa2cfb9c2",
+    "title": "Contemporary Plated Dinner",
+    "description": "Contemporary Plated Dinner. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "western",
+    "min_budget": 6000,
+    "max_budget": 15000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 20
+    },
+    "filename": "16-contemporary-plated-dinner.jpg",
+    "original_filename": "3959_106327_planui.webp",
+    "original_size": [
+      1000,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-35c9ce9789e9151114267fd0",
+    "title": "String Lit Terrace",
+    "description": "String Lit Terrace. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 3,
+    "max_group_size": 20,
+    "vibe_scores": {
+      "luxury": 35,
+      "casual": 85,
+      "modern": 55,
+      "privacy": 15,
+      "traditional": 15,
+      "cozy": 65,
+      "outdoor": 95
+    },
+    "filename": "17-string-lit-terrace.jpg",
+    "original_filename": "3cafe-la-boheme-omotesando-e1552641465299.jpg",
+    "original_size": [
+      900,
+      600
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-b25e42b6d302a2a9f32ac3c6",
+    "title": "Formal Long Table",
+    "description": "Formal Long Table. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 8000,
+    "max_budget": 30000,
+    "min_group_size": 6,
+    "max_group_size": 30,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 15,
+      "modern": 55,
+      "privacy": 50,
+      "traditional": 35,
+      "cozy": 55,
+      "outdoor": 0
+    },
+    "filename": "18-formal-long-table.jpg",
+    "original_filename": "629540_615.jpg",
+    "original_size": [
+      615,
+      410
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-93f3a6b88989d56520e1c7ed",
+    "title": "Vietnamese Noodles and Rolls",
+    "description": "Vietnamese Noodles and Rolls. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "vietnamese",
+    "min_budget": 1500,
+    "max_budget": 4500,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "19-vietnamese-noodles-and-rolls.jpg",
+    "original_filename": "678c5ce5-37e1-4bc2-af53-4993a5b6c5f8.webp",
+    "original_size": [
+      1280,
+      960
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-26a43b00718d9c275d68c6fa",
+    "title": "Italian Shared Feast",
+    "description": "Italian Shared Feast. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "italian",
+    "min_budget": 3000,
+    "max_budget": 7500,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "20-italian-shared-feast.jpg",
+    "original_filename": "8049_9109_planui.webp",
+    "original_size": [
+      1000,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-8a6376bc9f4e11a70b35d5e5",
+    "title": "Steak and Red Wine",
+    "description": "Steak and Red Wine. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "western",
+    "min_budget": 6000,
+    "max_budget": 18000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 20
+    },
+    "filename": "21-steak-and-red-wine.jpg",
+    "original_filename": "9344_35069_planui.webp",
+    "original_size": [
+      1000,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-24e6320d2944559b7bebdadf",
+    "title": "Bright Chinese Eatery",
+    "description": "Bright Chinese Eatery. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "chinese",
+    "min_budget": 1500,
+    "max_budget": 4500,
+    "min_group_size": 3,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 15,
+      "casual": 95,
+      "modern": 25,
+      "privacy": 10,
+      "traditional": 35,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "22-bright-chinese-eatery.jpg",
+    "original_filename": "9450f272a4919a5a5dcee85cd8338ce8.jpg",
+    "original_size": [
+      640,
+      360
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-ae10067e2d04d40f2aacfd5c",
+    "title": "Korean Grill Wrap",
+    "description": "Korean Grill Wrap. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "korean",
+    "min_budget": 2500,
+    "max_budget": 6500,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "23-korean-grill-wrap.jpg",
+    "original_filename": "AYMUKL5CASE2A7Q6VHDKG5HCRA.webp",
+    "original_size": [
+      1000,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-690eced22268cf7d43003504",
+    "title": "Pizza Sharing Table",
+    "description": "Pizza Sharing Table. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "italian",
+    "min_budget": 2500,
+    "max_budget": 6000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "24-pizza-sharing-table.jpg",
+    "original_filename": "HLUtbgqQ8A6yuTb01zxW.jpg",
+    "original_size": [
+      1024,
+      1024
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-8435ea9ca49564882c0baa2f",
+    "title": "Sushi and Sashimi Platter",
+    "description": "Sushi and Sashimi Platter. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "sushi",
+    "min_budget": 3000,
+    "max_budget": 10000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "25-sushi-and-sashimi-platter.jpg",
+    "original_filename": "IMG_0977.jpeg",
+    "original_size": [
+      640,
+      480
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-2c4c32a132a3b860d03538e3",
+    "title": "Quiet Modern Dining Room",
+    "description": "Quiet Modern Dining Room. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 4000,
+    "max_budget": 10000,
+    "min_group_size": 3,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "modern": 55,
+      "privacy": 35,
+      "traditional": 25,
+      "cozy": 85,
+      "outdoor": 0
+    },
+    "filename": "26-quiet-modern-dining-room.jpg",
+    "original_filename": "MC_4525_151462_1.jpg",
+    "original_size": [
+      740,
+      555
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-8953bae30de4bd68fe71ff06",
+    "title": "Warm Decorated Restaurant",
+    "description": "Warm Decorated Restaurant. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 4000,
+    "max_budget": 10000,
+    "min_group_size": 3,
+    "max_group_size": 20,
+    "vibe_scores": {
+      "luxury": 35,
+      "casual": 80,
+      "modern": 70,
+      "privacy": 15,
+      "traditional": 20,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "27-warm-decorated-restaurant.jpg",
+    "original_filename": "MG_6247-1.jpg",
+    "original_size": [
+      1024,
+      682
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-b294666506325c9e53f33b77",
+    "title": "Minimal Fine Dining Plate",
+    "description": "Minimal Fine Dining Plate. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "western",
+    "min_budget": 10000,
+    "max_budget": 35000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 20
+    },
+    "filename": "28-minimal-fine-dining-plate.jpg",
+    "original_filename": "MG_8810.jpg",
+    "original_size": [
+      1200,
+      1800
+    ],
+    "review_status": "reserve",
+    "review_note": "Single small course; weak group context",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-b000f89c7fa9598a30b555f3",
+    "title": "Tempura Rice Bowl",
+    "description": "Tempura Rice Bowl. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "japanese",
+    "min_budget": 1000,
+    "max_budget": 3000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 10,
+      "casual": 95
+    },
+    "filename": "29-tempura-rice-bowl.jpg",
+    "original_filename": "P035968287_480.jpg",
+    "original_size": [
+      480,
+      480
+    ],
+    "review_status": "reserve",
+    "review_note": "Individual bowl; low resolution",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-fb28e3b5d9cc99219226e3bb",
+    "title": "Chinese Shared Dishes",
+    "description": "Chinese Shared Dishes. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "chinese",
+    "min_budget": 2000,
+    "max_budget": 6000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "30-chinese-shared-dishes.jpg",
+    "original_filename": "P042378733_480.jpg",
+    "original_size": [
+      384,
+      480
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-15ffee5895ef69f6dbc41789",
+    "title": "Casual Steak Plate",
+    "description": "Casual Steak Plate. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "steak",
+    "min_budget": 2000,
+    "max_budget": 6500,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "31-casual-steak-plate.jpg",
+    "original_filename": "P044974436_480.jpg",
+    "original_size": [
+      480,
+      480
+    ],
+    "review_status": "reserve",
+    "review_note": "Low resolution and individual plate",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-08179080379bbba1644d4211",
+    "title": "Izakaya Shared Dishes",
+    "description": "Izakaya Shared Dishes. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "izakaya",
+    "min_budget": 2000,
+    "max_budget": 5000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "32-izakaya-shared-dishes.jpg",
+    "original_filename": "P050821004_480.jpg",
+    "original_size": [
+      480,
+      480
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-d891a621f5b1aefb85514bb7",
+    "title": "Urban BBQ Terrace",
+    "description": "Urban BBQ Terrace. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "bbq",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 3,
+    "max_group_size": 20,
+    "vibe_scores": {
+      "luxury": 35,
+      "casual": 85,
+      "modern": 55,
+      "privacy": 15,
+      "traditional": 15,
+      "cozy": 65,
+      "outdoor": 95
+    },
+    "filename": "33-urban-bbq-terrace.jpg",
+    "original_filename": "Tokyo6_1707723677.webp",
+    "original_size": [
+      2400,
+      1600
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-74f80ac67730e2bc4187e3b3",
+    "title": "Japanese Course Assortment",
+    "description": "Japanese Course Assortment. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "japanese",
+    "min_budget": 5000,
+    "max_budget": 15000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "34-japanese-course-assortment.jpg",
+    "original_filename": "YBKMGOD2VR6EDEMBNI7LE6PKLU.webp",
+    "original_size": [
+      1200,
+      1200
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-7fa3288c700f9ec4b129341a",
+    "title": "Spanish Tapas and Paella",
+    "description": "Spanish Tapas and Paella. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "spanish",
+    "min_budget": 4000,
+    "max_budget": 10000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "35-spanish-tapas-and-paella.jpg",
+    "original_filename": "best-spanish-food.webp",
+    "original_size": [
+      1920,
+      1278
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-296c2c00537b629ccd0d191c",
+    "title": "Chef at Teppanyaki Grill",
+    "description": "Chef at Teppanyaki Grill. Illustrative people preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "people",
+    "cuisine": "teppanyaki",
+    "min_budget": 8000,
+    "max_budget": 25000,
+    "min_group_size": 2,
+    "max_group_size": 8,
+    "vibe_scores": {
+      "luxury": 85,
+      "casual": 25,
+      "lively": 20,
+      "modern": 65,
+      "privacy": 35,
+      "traditional": 70,
+      "cozy": 75,
+      "outdoor": 0
+    },
+    "filename": "36-chef-at-teppanyaki-grill.jpg",
+    "original_filename": "chef1.jpg",
+    "original_size": [
+      1000,
+      1400
+    ],
+    "review_status": "reserve",
+    "review_note": "Chef focus rather than group experience",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-5dda8034300f606c9de62f84",
+    "title": "Outdoor Hot Pot Table",
+    "description": "Outdoor Hot Pot Table. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "hot_pot",
+    "min_budget": 4000,
+    "max_budget": 10000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75,
+      "outdoor": 90
+    },
+    "filename": "37-outdoor-hot-pot-table.jpg",
+    "original_filename": "d18232-839-955431-0.jpg",
+    "original_size": [
+      650,
+      434
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-4b4d6bf2b182d23ae06afba3",
+    "title": "Lively Brick Restaurant",
+    "description": "Lively Brick Restaurant. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 3,
+    "max_group_size": 25,
+    "vibe_scores": {
+      "luxury": 35,
+      "casual": 80,
+      "modern": 70,
+      "privacy": 15,
+      "traditional": 20,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "38-lively-brick-restaurant.jpg",
+    "original_filename": "da640166518e6540271135292b425bf8.jpg",
+    "original_size": [
+      1440,
+      960
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-09f11bb207d38b119ff81bc4",
+    "title": "Flame Grilled Steak",
+    "description": "Flame Grilled Steak. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "steak",
+    "min_budget": 5000,
+    "max_budget": 15000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 20
+    },
+    "filename": "39-flame-grilled-steak.jpg",
+    "original_filename": "el2005-spl-01-09-1585103265.avif",
+    "original_size": [
+      600,
+      800
+    ],
+    "review_status": "reserve",
+    "review_note": "Single dish; weak group context",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-64756a05fd1ec808e59b2ffb",
+    "title": "Japanese Skewers and Sides",
+    "description": "Japanese Skewers and Sides. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "izakaya",
+    "min_budget": 2500,
+    "max_budget": 6500,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "40-japanese-skewers-and-sides.jpg",
+    "original_filename": "gonpachi-soba-kushi04.jpg",
+    "original_size": [
+      1200,
+      800
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-bd4efba264ff1b37c61c644f",
+    "title": "Bright Garden Dining",
+    "description": "Bright Garden Dining. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 3500,
+    "max_budget": 10000,
+    "min_group_size": 3,
+    "max_group_size": 25,
+    "vibe_scores": {
+      "luxury": 55,
+      "casual": 60,
+      "modern": 70,
+      "privacy": 20,
+      "traditional": 15,
+      "cozy": 80,
+      "outdoor": 35
+    },
+    "filename": "41-bright-garden-dining.jpg",
+    "original_filename": "hero.jpg",
+    "original_size": [
+      1200,
+      665
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-ead9c81caa469c39b0a29a7d",
+    "title": "Colorful Asian Shared Table",
+    "description": "Colorful Asian Shared Table. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "asian",
+    "min_budget": 2500,
+    "max_budget": 6500,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "42-colorful-asian-shared-table.jpg",
+    "original_filename": "img.jpg",
+    "original_size": [
+      600,
+      600
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-37b22e865da5efeae14006d6",
+    "title": "Italian Dinner and Drinks",
+    "description": "Italian Dinner and Drinks. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "italian",
+    "min_budget": 3500,
+    "max_budget": 8000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "43-italian-dinner-and-drinks.jpg",
+    "original_filename": "italian-dining_SPN.webp",
+    "original_size": [
+      1200,
+      1200
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-da71399cc9331ced79c28dda",
+    "title": "Small Private Dining Room",
+    "description": "Small Private Dining Room. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 2,
+    "max_group_size": 6,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 60,
+      "modern": 55,
+      "privacy": 90,
+      "traditional": 45,
+      "cozy": 80,
+      "outdoor": 0
+    },
+    "filename": "44-small-private-dining-room.jpg",
+    "original_filename": "kbf2_.jpg",
+    "original_size": [
+      1000,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-79128abf5e603334852f4538",
+    "title": "Japanese Counter and Sake",
+    "description": "Japanese Counter and Sake. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "japanese",
+    "min_budget": 5000,
+    "max_budget": 15000,
+    "min_group_size": 2,
+    "max_group_size": 8,
+    "vibe_scores": {
+      "luxury": 85,
+      "casual": 25,
+      "modern": 65,
+      "privacy": 15,
+      "traditional": 70,
+      "cozy": 75,
+      "outdoor": 0
+    },
+    "filename": "45-japanese-counter-and-sake.jpg",
+    "original_filename": "key_sp.jpg",
+    "original_size": [
+      664,
+      825
+    ],
+    "review_status": "reserve",
+    "review_note": "Narrow composition; less useful for groups",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-4cefb21b82ea726621efe2c5",
+    "title": "Burgers and Craft Beer",
+    "description": "Burgers and Craft Beer. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "american",
+    "min_budget": 2000,
+    "max_budget": 5000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "46-burgers-and-craft-beer.jpg",
+    "original_filename": "khbmenu_img002.jpg",
+    "original_size": [
+      800,
+      533
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-e80dc3f76b993537ead2b8fa",
+    "title": "Modern Steak Dinner",
+    "description": "Modern Steak Dinner. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "steak",
+    "min_budget": 6000,
+    "max_budget": 18000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 20
+    },
+    "filename": "47-modern-steak-dinner.jpg",
+    "original_filename": "media20260520104409975.jpg",
+    "original_size": [
+      3072,
+      4096
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-2af71fcd4b4d9b4972048e33",
+    "title": "Shabu Shabu Set",
+    "description": "Shabu Shabu Set. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "hot_pot",
+    "min_budget": 3000,
+    "max_budget": 9000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "48-shabu-shabu-set.jpg",
+    "original_filename": "menu_syabusyabu_02_1_1.jpg",
+    "original_size": [
+      800,
+      1000
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-9c643a3ae76f5f7983f500f8",
+    "title": "Skyline Dinner Room",
+    "description": "Skyline Dinner Room. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 6000,
+    "max_budget": 20000,
+    "min_group_size": 3,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 80,
+      "casual": 30,
+      "modern": 80,
+      "privacy": 30,
+      "traditional": 15,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "49-skyline-dinner-room.jpg",
+    "original_filename": "mv-01.jpg",
+    "original_size": [
+      1100,
+      700
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-86624040434eb0bf4eff83bc",
+    "title": "Waterfront Night Dining",
+    "description": "Waterfront Night Dining. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "unspecified",
+    "min_budget": 5000,
+    "max_budget": 15000,
+    "min_group_size": 3,
+    "max_group_size": 20,
+    "vibe_scores": {
+      "luxury": 80,
+      "casual": 30,
+      "modern": 80,
+      "privacy": 30,
+      "traditional": 15,
+      "cozy": 65,
+      "outdoor": 0
+    },
+    "filename": "50-waterfront-night-dining.jpg",
+    "original_filename": "odaiba-view-dining.jpg",
+    "original_size": [
+      1200,
+      800
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-4652c7524962cf27f8f2d3fd",
+    "title": "Private Round Table with View",
+    "description": "Private Round Table with View. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "chinese",
+    "min_budget": 8000,
+    "max_budget": 25000,
+    "min_group_size": 5,
+    "max_group_size": 12,
+    "vibe_scores": {
+      "luxury": 90,
+      "casual": 15,
+      "modern": 55,
+      "privacy": 85,
+      "traditional": 35,
+      "cozy": 55,
+      "outdoor": 0
+    },
+    "filename": "51-private-round-table-with-view.jpg",
+    "original_filename": "r_1.webp",
+    "original_size": [
+      1000,
+      611
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-eb202615ee5bc712656c9e86",
+    "title": "Italian Shared Plates",
+    "description": "Italian Shared Plates. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "italian",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 40,
+      "casual": 75
+    },
+    "filename": "52-italian-shared-plates.jpg",
+    "original_filename": "s_00bw.webp",
+    "original_size": [
+      1280,
+      1280
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-b47e6a1ec9d5b5275db593b2",
+    "title": "Dark Japanese Booths",
+    "description": "Dark Japanese Booths. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "japanese",
+    "min_budget": 3000,
+    "max_budget": 9000,
+    "min_group_size": 3,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 60,
+      "modern": 55,
+      "privacy": 90,
+      "traditional": 65,
+      "cozy": 80,
+      "outdoor": 0
+    },
+    "filename": "53-dark-japanese-booths.jpg",
+    "original_filename": "s_0q9z.webp",
+    "original_size": [
+      1280,
+      1280
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-565aab5054a0eb6f6fd7aa31",
+    "title": "Sushi Counter Assortment",
+    "description": "Sushi Counter Assortment. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "sushi",
+    "min_budget": 4000,
+    "max_budget": 15000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "54-sushi-counter-assortment.jpg",
+    "original_filename": "satsuki_main.webp",
+    "original_size": [
+      1200,
+      1440
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-8859a3be100cfe271b8cd16c",
+    "title": "Warm Classic Bar",
+    "description": "Warm Classic Bar. Illustrative venue preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "venue",
+    "cuisine": "bar",
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "min_group_size": 2,
+    "max_group_size": 16,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "modern": 70,
+      "privacy": 20,
+      "traditional": 15,
+      "cozy": 60,
+      "outdoor": 0
+    },
+    "filename": "55-warm-classic-bar.jpg",
+    "original_filename": "store_20160227121754.jpg",
+    "original_size": [
+      800,
+      600
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-7e8af93b8fa829edddf4ee17",
+    "title": "Shared Sukiyaki",
+    "description": "Shared Sukiyaki. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "hot_pot",
+    "min_budget": 3500,
+    "max_budget": 12000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 45,
+      "casual": 65,
+      "traditional": 75
+    },
+    "filename": "56-shared-sukiyaki.jpg",
+    "original_filename": "sukiyaki_jyo.jpg",
+    "original_size": [
+      640,
+      640
+    ],
+    "review_status": "recommended",
+    "review_note": "Suitable for initial prototype; verify rights before public use.",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  },
+  {
+    "source_key": "local-96018252a4107d524ce0ac74",
+    "title": "Tabletop BBQ Grill",
+    "description": "Tabletop BBQ Grill. Illustrative food preference card; cuisine, budget and group range are provisional, not verified venue facts.",
+    "image_type": "food",
+    "cuisine": "bbq",
+    "min_budget": 2000,
+    "max_budget": 6000,
+    "min_group_size": 2,
+    "max_group_size": 50,
+    "vibe_scores": {
+      "luxury": 25,
+      "casual": 85
+    },
+    "filename": "57-tabletop-bbq-grill.jpg",
+    "original_filename": "timthumb.jpeg",
+    "original_size": [
+      460,
+      460
+    ],
+    "review_status": "reserve",
+    "review_note": "Low resolution; keep as reserve",
+    "rights_status": "unverified",
+    "source_url": null,
+    "license_url": null,
+    "photographer": null
+  }
+]
