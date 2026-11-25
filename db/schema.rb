@@ -148,6 +148,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_25_040526) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_type"
+    t.string "source_key"
+    t.string "source_url"
+    t.string "license_url"
+    t.string "photographer"
+    t.string "cuisine"
+    t.index ["source_key"], name: "index_vibe_cards_on_source_key", unique: true
   end
 
   add_foreign_key "candidate_votes", "candidates"
