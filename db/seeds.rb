@@ -90,4 +90,43 @@ cards.each do |attributes|
   card.update!(attributes.merge(active: true))
 end
 
+require "json"
+
+manifest_path = Rails.root.join("db/vibe_cards/local_photos/manifest.json")
+raise "Photo manifest not found: #{manifest_path}" unless File.exist?(manifest_path)
+
+photo_rows = JSON.parse(File.read(manifest_path))
+recommended_rows = photo_rows.select do |row|
+  row["review_status"] == "recommended"
+end
+
+cloudinary_base_url = "https://res.cloudinary.com/upyatvpj/image/upload"
+
+recommended_rows.each do |row|
+  filename = row.fetch("filename")
+
+  attributes = row.slice(
+    "title",
+    "description",
+    "image_type",
+    "cuisine",
+    "min_budget",
+    "max_budget",
+    "min_group_size",
+    "max_group_size",
+    "vibe_scores"
+  ).merge(
+    "image_url" => "#{cloudinary_base_url}/#{filename}",
+    "active" => true
+  )
+
+  card = VibeCard.find_or_initialize_by(
+    source_key: row.fetch("source_key")
+  )
+
+  card.update!(attributes)
+end
+
+puts "Seeded #{recommended_rows.length} recommended photo cards."
+
 puts "#{VibeCard.count} vibe cards available."
