@@ -20,5 +20,6 @@ Rails.application.routes.draw do
 
   resources :participants, only: :show, param: :token do
     resources :swipes, only: %i[index create]
+    resources :candidate_votes, only: :create
   end
 end

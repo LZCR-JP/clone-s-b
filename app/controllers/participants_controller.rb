@@ -22,6 +22,12 @@ class ParticipantsController < ApplicationController
     @selected_candidate = @nomikai.candidates
                                   .includes(:venue)
                                   .find_by(selected: true)
+
+    @candidate_vote = if @selected_candidate
+                        @participant.candidate_votes.find_by(
+                          candidate: @selected_candidate
+                        )
+                      end
   end
 
   private

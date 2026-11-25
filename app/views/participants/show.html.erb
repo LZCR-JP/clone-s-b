@@ -61,6 +61,39 @@
                     class: "btn-open-selected-restaurant",
                     target: "_blank",
                     rel: "noopener noreferrer" %>
+
+        <% if @nomikai.status == "open" %>
+          <p class="vote-prompt">Would this restaurant work for your group?</p>
+
+          <% if @candidate_vote.present? %>
+            <p class="vote-status">
+              Your response:
+              <strong><%= @candidate_vote.approved? ? "Looks good" : "I’d like another option" %></strong>
+            </p>
+          <% end %>
+
+          <div class="participant-vote-actions">
+            <%= button_to "Looks good",
+                          participant_candidate_votes_path(@participant.token),
+                          method: :post,
+                          params: {
+                            candidate_id: @selected_candidate.id,
+                            approved: true
+                          },
+                          class: "btn-vote-approve" %>
+
+            <%= button_to "I’d like another option",
+                          participant_candidate_votes_path(@participant.token),
+                          method: :post,
+                          params: {
+                            candidate_id: @selected_candidate.id,
+                            approved: false
+                          },
+                          class: "btn-vote-another" %>
+          </div>
+        <% else %>
+          <p class="vote-prompt">Voting is closed for this event.</p>
+        <% end %>
       </section>
     <% else %>
       <section class="participant-event-card participant-selected-restaurant">

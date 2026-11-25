@@ -14,6 +14,8 @@ class NomikaisController < ApplicationController
     @selected_candidate = @nomikai.candidates
                                   .includes(:venue)
                                   .find_by(selected: true)
+    @candidate_vote_counts =
+      @selected_candidate&.candidate_votes&.group(:approved)&.count || {}
   end
 
   def new

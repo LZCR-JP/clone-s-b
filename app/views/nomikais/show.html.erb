@@ -56,6 +56,21 @@
                       class: "selected-restaurant-link",
                       target: "_blank",
                       rel: "noopener noreferrer" %>
+
+          <% total_votes = @candidate_vote_counts.values.sum %>
+
+          <div class="candidate-vote-summary">
+            <% if total_votes.zero? %>
+              <p>No participant votes yet.</p>
+            <% else %>
+              <p>
+                <strong><%= @candidate_vote_counts.fetch(true, 0) %></strong>
+                approved ·
+                <strong><%= @candidate_vote_counts.fetch(false, 0) %></strong>
+                asked for another option
+              </p>
+            <% end %>
+          </div>
         </div>
       <% end %>
 

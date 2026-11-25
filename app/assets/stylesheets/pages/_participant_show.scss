@@ -250,6 +250,49 @@
     }
   }
 
+    .vote-prompt,
+  .vote-status {
+    margin: 16px 0 8px;
+    color: #82766d;
+    font-size: 14px;
+  }
+
+  .participant-vote-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    form {
+      margin: 0;
+    }
+
+    button {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    .btn-vote-approve {
+      border: 1px solid #ff6900;
+      background: #ff6900;
+      color: white;
+    }
+
+    .btn-vote-another {
+      border: 1px solid #f1d6c2;
+      background: white;
+      color: #a65d20;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .participant-vote-actions {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 576px) {
     .participant-welcome h1 {
       font-size: 28px;
