@@ -1,99 +1,78 @@
 class VibeCardSelector
   CARD_LIMIT = 15
 
-  TYPE_TARGETS = {
-    "food" => 8,
-    "venue" => 5,
-    "people" => 2
-  }.freeze
-
   def initialize(nomikai)
     @nomikai = nomikai
+    @fallback_used = false
   end
 
   def call
     @nomikai.with_lock do
-      unless @nomikai.nomikai_vibe_cards.exists?
-        matching_cards.each_with_index do |card, index|
-          @nomikai.nomikai_vibe_cards.create!(
-            vibe_card: card,
-            position: index + 1
-          )
-        end
-      end
+      build_deck unless @nomikai.nomikai_vibe_cards.exists?
+      @nomikai.nomikai_vibe_cards
+    end
+  end
 
-      @nomikai.nomikai_vibe_cards.order(:position)
+  def fallback?
+    return true if @fallback_used
+
+    @nomikai.nomikai_vibe_cards.includes(:vibe_card).any? do |nomikai_vibe_card|
+      !matches_event_limits?(nomikai_vibe_card.vibe_card)
     end
   end
 
   private
 
-  def matching_cards
-    available_cards = eligible_cards.to_a.shuffle
+  def build_deck
+    cards = matching_cards
+    cards = fallback_cards if cards.empty?
 
-    selected_cards = []
-    cuisine_counts = Hash.new(0)
-
-    TYPE_TARGETS.each do |type, target|
-      pool = available_cards.select do |card|
-        card.image_type == type
-      end
-
-      target.times do
-        break if pool.empty?
-
-        card = pick_diverse_card(pool, cuisine_counts)
-
-        selected_cards << card
-
-        cuisine_counts[card.cuisine] += 1
-
-        pool.delete(card)
-        available_cards.delete(card)
-      end
+    cards.each_with_index do |card, index|
+      @nomikai.nomikai_vibe_cards.create!(vibe_card: card, position: index + 1)
     end
-
-    while selected_cards.size < CARD_LIMIT
-      break if available_cards.empty?
-
-      card = pick_diverse_card(
-        available_cards,
-        cuisine_counts
-      )
-
-      selected_cards << card
-
-      cuisine_counts[card.cuisine] += 1
-
-      available_cards.delete(card)
-    end
-
-    selected_cards.shuffle
   end
 
-  def eligible_cards
-    budget = @nomikai.budget_per_person
-    group_size = @nomikai.group_size
+  def fallback_cards
+    @fallback_used = true
+    random_cards(photo_cards)
+  end
 
+  def photo_cards
     VibeCard.where(active: true)
-            .where(
-              "min_budget IS NULL OR min_budget <= ?", budget
-            )
-            .where(
-              "max_budget IS NULL OR max_budget >= ?", budget
-            )
-            .where(
-              "min_group_size IS NULL OR min_group_size <= ?", group_size
-            )
-            .where(
-              "max_group_size IS NULL OR max_group_size >= ?", group_size
-            )
             .where.not(image_url: [nil, ""])
   end
 
-  def pick_diverse_card(pool, cuisine_counts)
-    pool.min_by do |card|
-      cuisine_counts[card.cuisine]
-    end
+  def matching_cards
+    random_cards(filter_by_budget(filter_by_group_size(photo_cards)))
+  end
+
+  def filter_by_group_size(scope)
+    size = @nomikai.group_size
+
+    scope.where("min_group_size IS NULL OR min_group_size <= ?", size)
+         .where("max_group_size IS NULL OR max_group_size >= ?", size)
+  end
+
+  def filter_by_budget(scope)
+    budget = @nomikai.budget_per_person
+    return scope if budget.nil?
+
+    scope.where("min_budget IS NULL OR min_budget <= ?", budget)
+         .where("max_budget IS NULL OR max_budget >= ?", budget)
+  end
+
+  def random_cards(scope)
+    scope.order(Arel.sql("RANDOM()")).limit(CARD_LIMIT)
+  end
+
+  def matches_event_limits?(card)
+    within_range?(card.min_budget, card.max_budget, @nomikai.budget_per_person) &&
+      within_range?(card.min_group_size, card.max_group_size, @nomikai.group_size)
+  end
+
+  def within_range?(min, max, value)
+    return true if value.nil?
+
+    (min.nil? || min <= value) && (max.nil? || max >= value)
   end
 end

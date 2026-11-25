@@ -3,7 +3,9 @@ class SwipesController < ApplicationController
   before_action :ensure_open
 
   def index
-    VibeCardSelector.new(@nomikai).call
+    selector = VibeCardSelector.new(@nomikai)
+    selector.call
+    @show_card_fallback_notice = selector.fallback?
 
     @cards = @nomikai.nomikai_vibe_cards.order(:position)
     @total_cards = @cards.count
