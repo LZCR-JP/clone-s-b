@@ -1,0 +1,46 @@
+<%
+  if user_signed_in?
+    brand_path = nomikais_path
+  elsif @participant&.persisted?
+    brand_path = participant_path(@participant.token)
+  elsif @nomikai&.share_token.present?
+    brand_path = join_path(@nomikai.share_token)
+  else
+    brand_path = root_path
+  end
+%>
+
+<header class="app-navbar">
+  <div class="app-navbar__inner">
+    <%= link_to brand_path, class: "app-navbar__brand" do %>
+      <span class="app-navbar__mark">S&amp;B</span>
+      <span>Swipe &amp; Bite</span>
+    <% end %>
+
+    <nav class="app-navbar__links" aria-label="Main navigation">
+      <% if user_signed_in? %>
+        <%= link_to "Home", root_path, class: "app-navbar__link" %>
+        <%= link_to "My Gatherings", nomikais_path, class: "app-navbar__link" %>
+        <%= link_to "Account",
+                    edit_user_registration_path,
+                    class: "app-navbar__link" %>
+        <%= button_to "Sign out",
+                      destroy_user_session_path,
+                      method: :delete,
+                      class: "app-navbar__sign-out",
+                      form: { class: "app-navbar__sign-out-form" } %>
+      <% elsif @participant&.persisted? %>
+        <%= link_to "Home", root_path, class: "app-navbar__link" %>
+      <% elsif @nomikai&.share_token.present? %>
+        <%= link_to "Home", root_path, class: "app-navbar__link" %>
+      <% else %>
+        <%= link_to "Sign in",
+                    new_user_session_path,
+                    class: "app-navbar__link" %>
+        <%= link_to "Create account",
+                    new_user_registration_path,
+                    class: "app-navbar__create-account" %>
+      <% end %>
+    </nav>
+  </div>
+</header>
