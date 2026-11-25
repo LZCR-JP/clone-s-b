@@ -50,15 +50,16 @@
       <% total_votes = approvals + another_option_votes %>
 
       <section class="show-section selected-restaurant">
-        <span class="event-label">RESTAURANT SELECTED</span>
-        <h2>Your choice is saved</h2>
-        <p>Open the selected place in Google Maps to share it with your group.</p>
+        <span class="event-label">SELECTED RESTAURANT</span>
+        <h2><%= @selected_restaurant_name.presence || "Your choice is saved" %></h2>
 
-        <%= link_to "View selected restaurant on Google Maps",
+        <%= link_to "Open in Google Maps ↗",
                     maps_url,
                     class: "selected-restaurant-link",
                     target: "_blank",
                     rel: "noopener noreferrer" %>
+
+        <span class="google-maps-attribution" translate="no"></span>
 
         <div class="candidate-vote-summary">
           <% if total_votes.zero? %>

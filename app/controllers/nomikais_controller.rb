@@ -14,6 +14,12 @@ class NomikaisController < ApplicationController
     @selected_candidate = @nomikai.candidates
                                   .includes(:venue)
                                   .find_by(selected: true)
+    @selected_restaurant_name =
+      if @selected_candidate.present?
+        GooglePlaceDetails.new(
+          @selected_candidate.venue.google_place_id
+        ).call
+      end
     @candidate_vote_counts =
       @selected_candidate&.candidate_votes&.group(:approved)&.count || {}
   end
