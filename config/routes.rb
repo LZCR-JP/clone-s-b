@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :nomikais do
     member do
       patch :close
+      get :recommendations, action: :recommendations_landing, as: :recommendations_landing
       post :recommendations
     end
   end

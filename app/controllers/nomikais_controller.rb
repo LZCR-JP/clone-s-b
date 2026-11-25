@@ -1,6 +1,6 @@
 class NomikaisController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_nomikai, only: %i[show destroy close recommendations]
+  before_action :set_nomikai, only: %i[show destroy close recommendations recommendations_landing]
 
   def index
     @nomikais = current_user.nomikais
@@ -63,6 +63,11 @@ class NomikaisController < ApplicationController
 
   def recommendations
     @places = GooglePlacesSearch.new(@nomikai).call
+  end
+
+  def recommendations_landing
+    redirect_to nomikai_path(@nomikai),
+                notice: "Search results are temporary. Run a new search to refresh them."
   end
 
   private

@@ -1,30 +1,44 @@
-<div class="container py-5">
-  <div class="show-section">
-    <h1>Restaurant candidates</h1>
+<div class="recommendations-screen">
+  <div class="nomikai-show recommendations-page">
+    <%= link_to "← Back to event",
+                nomikai_path(@nomikai),
+                class: "back-link" %>
+
+    <header class="recommendations-header">
+      <span class="event-label">RESTAURANT MATCHES</span>
+      <h1>Restaurant candidates</h1>
+      <p>Places found for <%= @nomikai.area %>.</p>
+    </header>
 
     <% if @places.any? %>
-      <% @places.each do |place| %>
-        <article class="mb-4">
-          <h2><%= place[:name] || "Restaurant" %></h2>
+      <div class="recommendation-list">
+        <% @places.each do |place| %>
+          <article class="recommendation-card">
+            <div>
+              <h2><%= place[:name] || "Restaurant" %></h2>
 
-          <% if place[:address].present? %>
-            <p><%= place[:address] %></p>
-          <% end %>
+              <% if place[:address].present? %>
+                <p><%= place[:address] %></p>
+              <% end %>
+            </div>
 
-          <% if place[:google_maps_uri].present? %>
-            <%= link_to "View on Google Maps",
-                        place[:google_maps_uri],
-                        target: "_blank",
-                        rel: "noopener noreferrer" %>
-          <% end %>
-        </article>
-      <% end %>
+            <% if place[:google_maps_uri].present? %>
+              <%= link_to "View on Google Maps",
+                          place[:google_maps_uri],
+                          class: "recommendation-map-link",
+                          target: "_blank",
+                          rel: "noopener noreferrer" %>
+            <% end %>
+          </article>
+        <% end %>
+      </div>
 
-      <p translate="no"><strong>Google Maps</strong></p>
+      <p class="google-maps-attribution" translate="no">Google Maps</p>
     <% else %>
-      <p>No restaurants were found for this search.</p>
+      <div class="recommendations-empty">
+        <h2>No matches found</h2>
+        <p>Try updating the event area and searching again.</p>
+      </div>
     <% end %>
-
-    <%= link_to "Back to event", nomikai_path(@nomikai) %>
   </div>
 </div>
