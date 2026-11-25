@@ -1,59 +1,102 @@
-<div class="container mt-4">
-  <h1>Join <%= @nomikai.name %></h1>
+<div class="container py-5">
+  <div class="participant-join">
 
-  <p>Location: <%= @nomikai.area %></p>
-  <p>Guests: <%= @nomikai.group_size %></p>
-  <p>Suggested budget: ¥<%= @nomikai.budget_per_person %></p>
-
-  <% @participant.errors.full_messages.each do |message| %>
-    <p class="text-danger"><%= message %></p>
-  <% end %>
-
-  <%= form_with model: @participant,
-                url: join_path(@nomikai.share_token) do |f| %>
-
-    <div class="mb-3">
-      <%= f.label :nickname, "Your Name" %>
-      <%= f.text_field :nickname,
-                       class: "form-control",
-                       required: true %>
+    <!-- Branding -->
+    <div class="join-brand">
+      <h2>Swipe <span>&</span> Bite</h2>
+      <p>GOOD FOOD. BETTER TOGETHER.</p>
     </div>
 
-    <div class="mb-3">
-      <%= f.label :budget_max, "Maximum Budget (JPY)" %>
-      <%= f.number_field :budget_max,
-                         min: 1,
-                         class: "form-control",
-                         required: true %>
+    <!-- Introduction -->
+    <div class="join-header">
+      <span class="join-label">YOU'RE INVITED</span>
+      <h1>Join the event!</h1>
+      <p>Tell us your preferences and help your team find the perfect restaurant.</p>
     </div>
 
-    <div class="mb-3">
-      <h5>Dietary Restrictions</h5>
+    <!-- Event information -->
+    <div class="join-event-card">
+      <h2><%= @nomikai.name %></h2>
 
-      <% ["Vegetarian", "Vegan", "Halal", "Gluten-free",
-          "Seafood allergy", "Nut allergy"].each do |restriction| %>
+      <div class="join-event-details">
+        <p>
+          <i class="fa-solid fa-location-dot"></i>
+          <%= @nomikai.area %>
+        </p>
 
-        <div class="form-check">
-          <%= check_box_tag "participant[restrictions][]",
-                            restriction,
-                            @participant.restrictions.include?(restriction),
-                            id: "restriction_#{restriction.parameterize}",
-                            class: "form-check-input" %>
+        <p>
+          <i class="fa-solid fa-calendar"></i>
+          <%= @nomikai.event_date.strftime("%b %d, %Y · %H:%M") %>
+        </p>
 
-          <%= label_tag "restriction_#{restriction.parameterize}",
-                        restriction,
-                        class: "form-check-label" %>
+        <p>
+          <i class="fa-solid fa-users"></i>
+          <%= @nomikai.group_size %> people
+        </p>
+
+        <p>
+          <i class="fa-solid fa-wallet"></i>
+          ¥<%= number_with_delimiter(@nomikai.budget_per_person) %> suggested budget
+        </p>
+      </div>
+    </div>
+
+    <!-- Participant form -->
+    <div class="join-form-card">
+      <h2>Tell us about yourself</h2>
+      <p class="form-description">
+        Your preferences will help us find restaurants everyone can enjoy.
+      </p>
+
+      <%= simple_form_for @participant,
+          url: @join_path do |f| %>
+
+        <%= f.error_notification %>
+
+        <%= f.input :nickname,
+                    label: "Your name",
+                    placeholder: "Enter your name",
+                    required: true %>
+
+        <%= f.input :budget_max,
+                    label: "Maximum budget (JPY)",
+                    placeholder: "e.g. 5000",
+                    as: :numeric,
+                    input_html: { min: 1 },
+                    required: true %>
+
+        <div class="dietary-section">
+          <h3>Dietary restrictions</h3>
+          <p>Select all that apply.</p>
+
+          <%= f.input :restrictions,
+                      as: :check_boxes,
+                      collection: [
+                        "Vegetarian",
+                        "Vegan",
+                        "Halal",
+                        "Gluten-free",
+                        "Seafood allergy",
+                        "Nut allergy"
+                      ],
+                      label: false,
+                      include_hidden: false %>
         </div>
+
+        <%= f.input :non_drinker,
+                    as: :boolean,
+                    label: "I don't drink alcohol" %>
+
+        <%= f.button :submit,
+                     "Join the Event",
+                     class: "btn-join-event" %>
 
       <% end %>
     </div>
 
-    <div class="form-check mb-3">
-      <%= f.check_box :non_drinker, class: "form-check-input" %>
-      <%= f.label :non_drinker, "I don't drink alcohol" %>
-    </div>
+    <p class="join-footer">
+      Made for better team dining experiences.
+    </p>
 
-    <%= f.submit "Continue", class: "btn btn-primary" %>
-
-  <% end %>
+  </div>
 </div>

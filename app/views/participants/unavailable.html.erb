@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <div class="participant-join">
+
+    <div class="join-brand">
+      <h2>Swipe <span>&</span> Bite</h2>
+      <p>GOOD FOOD. BETTER TOGETHER.</p>
+    </div>
+
+    <div class="join-form-card join-unavailable">
+      <div class="join-unavailable-icon"><i class="fa-solid fa-utensils"></i></div>
+      <h2>We can't add you to this event</h2>
+      <p class="form-description"><%= @message %></p>
+
+      <%= link_to "Enter a join code", join_code_path, class: "btn-join-event" %>
+    </div>
+
+  </div>
+</div>

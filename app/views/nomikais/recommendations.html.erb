@@ -1,0 +1,59 @@
+<div class="recommendations-screen">
+  <main class="recommendations-page">
+    <%= link_to "← Back to event",
+                nomikai_path(@nomikai),
+                class: "recommendations-back-link" %>
+
+    <header class="recommendations-header">
+      <span class="recommendations-eyebrow">SWIPE &amp; BITE · RESTAURANT MATCHES</span>
+      <h1>Restaurants for your event</h1>
+      <p>Places found near <strong><%= @nomikai.area %></strong>.</p>
+    </header>
+
+    <% if @places.any? %>
+      <div class="recommendation-list">
+        <% @places.each do |place| %>
+          <article class="recommendation-card">
+            <div class="recommendation-details">
+              <h2><%= place[:name] || "Restaurant" %></h2>
+
+              <% if place[:address].present? %>
+                <p><%= place[:address] %></p>
+              <% end %>
+            </div>
+
+            <div class="recommendation-actions">
+              <% if place[:google_maps_uri].present? %>
+                <%= link_to "View on Google Maps",
+                            place[:google_maps_uri],
+                            class: "recommendation-map-link",
+                            target: "_blank",
+                            rel: "noopener noreferrer" %>
+              <% end %>
+
+              <% if place[:selected] %>
+                <span class="recommendation-selected">Selected for this event</span>
+              <% else %>
+                <%= button_to "Choose this restaurant",
+                              select_candidate_nomikai_path(
+                                @nomikai,
+                                candidate_id: place[:candidate_id]
+                              ),
+                              method: :patch,
+                              class: "recommendation-select-button",
+                              form: { class: "recommendation-select-form" } %>
+              <% end %>
+            </div>
+          </article>
+        <% end %>
+      </div>
+
+      <p class="recommendations-attribution" translate="no">Google Maps</p>
+    <% else %>
+      <section class="recommendations-empty">
+        <h2>No restaurants found</h2>
+        <p>Try changing the event area, then search again.</p>
+      </section>
+    <% end %>
+  </main>
+</div>
