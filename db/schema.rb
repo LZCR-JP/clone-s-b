@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_25_000002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -26,6 +26,20 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
     t.index ["nomikai_id", "venue_id"], name: "index_candidates_on_nomikai_id_and_venue_id", unique: true
     t.index ["nomikai_id"], name: "index_candidates_on_nomikai_id"
     t.index ["venue_id"], name: "index_candidates_on_venue_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "nomikai_id", null: false
+    t.string "email", null: false
+    t.string "token", null: false
+    t.string "status", default: "pending", null: false
+    t.datetime "sent_at"
+    t.datetime "accepted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nomikai_id", "email"], name: "index_invitations_on_nomikai_id_and_email", unique: true
+    t.index ["nomikai_id"], name: "index_invitations_on_nomikai_id"
+    t.index ["token"], name: "index_invitations_on_token", unique: true
   end
 
   create_table "nomikai_vibe_cards", force: :cascade do |t|
@@ -53,6 +67,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
     t.text "preference_summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "join_code", null: false
+    t.index ["join_code"], name: "index_nomikais_on_join_code", unique: true
     t.index ["share_token"], name: "index_nomikais_on_share_token", unique: true
     t.index ["user_id"], name: "index_nomikais_on_user_id"
   end
@@ -67,6 +83,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "invitation_id"
+    t.index ["invitation_id"], name: "index_participants_on_invitation_id", unique: true
     t.index ["nomikai_id"], name: "index_participants_on_nomikai_id"
     t.index ["token"], name: "index_participants_on_token", unique: true
   end
@@ -118,9 +136,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
 
   add_foreign_key "candidates", "nomikais"
   add_foreign_key "candidates", "venues"
+  add_foreign_key "invitations", "nomikais"
   add_foreign_key "nomikai_vibe_cards", "nomikais"
   add_foreign_key "nomikai_vibe_cards", "vibe_cards"
   add_foreign_key "nomikais", "users"
+  add_foreign_key "participants", "invitations"
   add_foreign_key "participants", "nomikais"
   add_foreign_key "swipes", "nomikai_vibe_cards"
   add_foreign_key "swipes", "participants"

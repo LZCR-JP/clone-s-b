@@ -281,3 +281,24 @@
     font-size: 32px;
   }
 }
+
+/* RANGE LABELS WITH LIVE VALUE */
+
+.event-form-group label.label-with-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.label-note {
+  font-size: 12px;
+  font-weight: 400;
+  color: #988b80;
+}
+
+.label-value {
+  margin-left: auto;
+  font-weight: 800;
+  color: $text-primary;
+  font-variant-numeric: tabular-nums;
+}

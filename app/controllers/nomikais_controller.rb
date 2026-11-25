@@ -1,6 +1,6 @@
 class NomikaisController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_nomikai, only: %i[show destroy close]
+  before_action :set_nomikai, only: %i[show destroy close regenerate_code]
 
   def index
     @nomikais = current_user.nomikais
@@ -10,6 +10,7 @@ class NomikaisController < ApplicationController
 
   def show
     @participants = @nomikai.participants
+    @invitations = @nomikai.invitations.visible.order(created_at: :desc)
   end
 
   def new
@@ -58,6 +59,13 @@ class NomikaisController < ApplicationController
     redirect_to nomikai_path(@nomikai),
                 status: :see_other,
                 notice: "Nomikai is now closed."
+  end
+
+  def regenerate_code
+    @nomikai.regenerate_join_code!
+    flash[:invite_notice] = "New join code created. The old code no longer works."
+
+    redirect_to nomikai_path(@nomikai, anchor: "invite"), status: :see_other
   end
 
   private

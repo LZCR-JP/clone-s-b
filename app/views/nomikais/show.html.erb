@@ -42,29 +42,8 @@
       </div>
     </div>
 
-    <!-- Invitation link -->
-    <div class="show-section invite-section">
-      <h2>Invite your team</h2>
-      <p>Share this link with your teammates so they can join and swipe.</p>
-
-      <div data-controller="clipboard" class="invite-link">
-        <input
-          type="text"
-          class="form-control"
-          value="<%= join_url(@nomikai.share_token) %>"
-          readonly
-          data-clipboard-target="source">
-
-        <button
-          type="button"
-          class="btn-copy"
-          data-action="click->clipboard#copy">
-          Copy link
-        </button>
-
-        <small data-clipboard-target="message"></small>
-      </div>
-    </div>
+    <!-- Invite your team -->
+    <%= render "nomikais/invite_section", nomikai: @nomikai, invitations: @invitations %>
 
     <!-- Participants -->
     <% completed_count = @participants.where.not(completed_at: nil).count %>
@@ -105,7 +84,7 @@
       <% else %>
         <div class="empty-participants">
           <p>No participants yet.</p>
-          <span>Share your invitation link to get your team started!</span>
+          <span>Share your join code or send email invites to get your team started!</span>
         </div>
       <% end %>
     </div>

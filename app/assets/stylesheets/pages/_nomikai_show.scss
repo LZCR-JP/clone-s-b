@@ -125,6 +125,248 @@
     }
   }
 
+  // ----- Invite your team -----
+  .invite-flash {
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
+
+    &.success {
+      background: #e5f4e9;
+      color: #287a43;
+    }
+
+    &.warning {
+      background: #fff0df;
+      color: #a65d20;
+    }
+  }
+
+  .invite-tabs {
+    display: inline-flex;
+    gap: 4px;
+    background: #faf8f5;
+    border: 1px solid #eee9e3;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 4px 0 20px;
+  }
+
+  .invite-tab {
+    background: transparent;
+    border: 0;
+    border-radius: 7px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #77716b;
+
+    i {
+      font-size: 12px;
+      margin-right: 4px;
+    }
+
+    &:hover {
+      color: #d96b35;
+    }
+
+    &.is-active {
+      background: #fff;
+      color: #292724;
+      box-shadow: 0 1px 3px rgba(41, 39, 36, 0.08);
+
+      i {
+        color: #d96b35;
+      }
+    }
+  }
+
+  .join-code-box {
+    background: #faf6f1;
+    border: 1px dashed #ead9c9;
+    border-radius: 12px;
+    padding: 18px 20px;
+
+    .copy-message {
+      display: block;
+      min-height: 18px;
+      margin-top: 6px;
+      color: #287a43;
+    }
+  }
+
+  .join-code-label,
+  .invite-list-label {
+    color: #89827b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .join-code-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .join-code {
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #292724;
+    background: none;
+    padding: 0;
+  }
+
+  .invite-steps {
+    color: #69635d;
+    font-size: 14px;
+    padding-left: 20px;
+    margin: 18px 0 14px;
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    strong {
+      color: #292724;
+      word-break: break-all;
+    }
+  }
+
+  .invite-code-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13px;
+    color: #89827b;
+    border-top: 1px solid #f0ece7;
+    padding-top: 14px;
+  }
+
+  .btn-text-link {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d96b35;
+
+    &:hover {
+      color: #bd5728;
+      text-decoration: underline;
+    }
+
+    &.danger {
+      color: #b64242;
+    }
+
+    &:disabled {
+      color: #c4bdb6;
+      text-decoration: none;
+      cursor: not-allowed;
+    }
+  }
+
+  .invite-link-fallback {
+    margin-top: 14px;
+    font-size: 13px;
+
+    summary {
+      color: #89827b;
+      cursor: pointer;
+      margin-bottom: 10px;
+
+      &:hover {
+        color: #d96b35;
+      }
+    }
+  }
+
+  .invite-email-form {
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    textarea {
+      background: #faf8f5;
+      border: 1px solid #e8e1d9;
+      border-radius: 8px;
+      padding: 12px;
+      resize: vertical;
+
+      &:focus {
+        border-color: #d96b35;
+        box-shadow: 0 0 0 3px rgba(217, 107, 53, 0.12);
+      }
+    }
+  }
+
+  .invite-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+
+    small {
+      color: #89827b;
+      font-size: 12px;
+    }
+  }
+
+  .invite-list {
+    margin-top: 24px;
+  }
+
+  .invite-row {
+    .invite-row-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+
+      strong {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      small {
+        color: #89827b;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .invite-row-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .invite-closed {
+    background: #faf8f5;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #77716b;
+
+    i {
+      color: #a65d20;
+      margin-right: 6px;
+    }
+  }
+
   .btn-copy {
     background: #d96b35;
     color: white;
@@ -244,6 +486,19 @@
 
     .event-details {
       grid-template-columns: 1fr;
+    }
+
+    .join-code {
+      font-size: 22px;
+    }
+
+    .invite-row {
+      flex-wrap: wrap;
+
+      .invite-row-actions {
+        width: 100%;
+        padding-left: 50px;
+      }
     }
 
     .event-actions {

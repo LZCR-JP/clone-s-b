@@ -51,7 +51,7 @@
         <%= f.input :name,
               label: "Event name",
               placeholder: "e.g. Friday Team Dinner",
-              hint: "Give your dining event a name.",
+              hint: false,
               required: true,
               wrapper_html: { class: "event-form-group" },
               input_html: { class: "event-input" } %>
@@ -69,7 +69,6 @@
           </div>
 
           <%= f.error :area %>
-          <small>Where would your team like to eat?</small>
         </div>
 
         <%# DATE AND TIME %>
@@ -77,7 +76,7 @@
               as: :datetime,
               html5: true,
               label: "Event date and time",
-              hint: "When are you planning to meet?",
+              hint: false,
               required: true,
               wrapper_html: { class: "event-form-group" },
               input_html: {
@@ -89,8 +88,14 @@
         <div data-controller="range-output">
           <%= f.input :group_size,
                 as: :range,
-                label: "Expected group size",
-                hint: "Including the host.",
+                label: safe_join([
+                  "Expected group size",
+                  content_tag(:span, "(incl. host)", class: "label-note"),
+                  content_tag(:span, "", class: "label-value",
+                              data: { range_output_target: "output" })
+                ]),
+                label_html: { class: "label-with-value" },
+                hint: false,
                 wrapper_html: { class: "event-form-group" },
                 input_html: {
                   class: "event-input",
@@ -102,8 +107,6 @@
                     action: "input->range-output#update"
                   }
                 } %>
-
-          <output data-range-output-target="output"></output>
         </div>
 
         <%# BUDGET %>
@@ -112,7 +115,13 @@
 
           <%= f.input :budget_per_person,
                 as: :range,
-                label: "Budget per person",
+                label: safe_join([
+                  "Budget per person",
+                  content_tag(:span, "", class: "label-value",
+                              data: { range_output_target: "output" })
+                ]),
+                label_html: { class: "label-with-value" },
+                hint: false,
                 required: false,
                 wrapper_html: { class: "event-form-group" },
                 input_html: {
@@ -125,8 +134,6 @@
                     action: "input->range-output#update"
                   }
                 } %>
-
-          <output data-range-output-target="output"></output>
 
           <label>
             <%= check_box_tag :flexible, "1",
