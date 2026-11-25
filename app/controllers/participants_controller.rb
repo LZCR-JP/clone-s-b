@@ -19,6 +19,15 @@ class ParticipantsController < ApplicationController
   def show
     @participant = Participant.find_by!(token: params[:token])
     @nomikai = @participant.nomikai
+    @selected_candidate = @nomikai.candidates
+                                  .includes(:venue)
+                                  .find_by(selected: true)
+
+    @candidate_vote = if @selected_candidate
+                        @participant.candidate_votes.find_by(
+                          candidate: @selected_candidate
+                        )
+                      end
   end
 
   private

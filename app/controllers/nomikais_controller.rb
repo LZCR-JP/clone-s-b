@@ -1,6 +1,6 @@
 class NomikaisController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_nomikai, only: %i[show destroy close recommendations recommendations_landing]
+  before_action :set_nomikai, only: %i[show destroy close recommendations recommendations_landing select_candidate]
 
   def index
     @nomikais = current_user.nomikais
@@ -11,6 +11,11 @@ class NomikaisController < ApplicationController
   def show
     @participants = @nomikai.participants
     @preference_summary = NomikaiPreferenceSummary.new(@nomikai).call
+    @selected_candidate = @nomikai.candidates
+                                  .includes(:venue)
+                                  .find_by(selected: true)
+    @candidate_vote_counts =
+      @selected_candidate&.candidate_votes&.group(:approved)&.count || {}
   end
 
   def new
@@ -68,6 +73,19 @@ class NomikaisController < ApplicationController
   def recommendations_landing
     redirect_to nomikai_path(@nomikai),
                 notice: "Search results are temporary. Run a new search to refresh them."
+  end
+
+  def select_candidate
+    candidate = @nomikai.candidates.find(params[:candidate_id])
+
+    @nomikai.with_lock do
+      @nomikai.candidates.where.not(id: candidate.id).update_all(selected: false)
+      candidate.update!(selected: true)
+    end
+
+    redirect_to nomikai_path(@nomikai),
+                status: :see_other,
+                notice: "Restaurant selected."
   end
 
   private

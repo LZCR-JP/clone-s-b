@@ -42,6 +42,59 @@
       </div>
     </div>
 
+    <% if @selected_candidate.present? %>
+        <% place_id = @selected_candidate.venue.google_place_id %>
+        <% maps_url = "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=#{ERB::Util.url_encode(place_id)}" %>
+
+        <div class="show-section selected-restaurant">
+          <span class="event-label">RESTAURANT SELECTED</span>
+          <h2>Your choice is saved</h2>
+          <p>Open the selected place in Google Maps to share it with your group.</p>
+
+          <%= link_to "View selected restaurant on Google Maps",
+                      maps_url,
+                      class: "selected-restaurant-link",
+                      target: "_blank",
+                      rel: "noopener noreferrer" %>
+
+          <% total_votes = @candidate_vote_counts.values.sum %>
+
+          <div class="candidate-vote-summary">
+            <% if total_votes.zero? %>
+              <p>No participant votes yet.</p>
+            <% else %>
+              <p>
+                <strong><%= @candidate_vote_counts.fetch(true, 0) %></strong>
+                approved ·
+                <strong><%= @candidate_vote_counts.fetch(false, 0) %></strong>
+                asked for another option
+              </p>
+            <% end %>
+          </div>
+
+          <% approvals = @candidate_vote_counts.fetch(true, 0) %>
+          <% another_option_votes = @candidate_vote_counts.fetch(false, 0) %>
+
+          <div class="candidate-decision">
+            <% if approvals + another_option_votes == 0 %>
+              <p>No participant votes yet.</p>
+            <% elsif approvals > another_option_votes %>
+              <p>More participants approve this restaurant.</p>
+            <% elsif another_option_votes > approvals %>
+              <p>More participants want another option.</p>
+
+              <%= button_to "Find another restaurant",
+                            recommendations_nomikai_path(@nomikai),
+                            method: :post,
+                            class: "btn-find-candidates",
+                            form: { data: { turbo: false } } %>
+            <% else %>
+              <p>The votes are tied. You can keep this choice or search again.</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
     <!-- AI Preference Summary -->
     <% summary = @preference_summary %>
     <% restrictions = summary[:dietary_restrictions] %>

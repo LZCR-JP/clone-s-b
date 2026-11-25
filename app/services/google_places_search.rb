@@ -4,11 +4,12 @@ require "uri"
 
 class GooglePlacesSearch
   ENDPOINT = URI("https://places.googleapis.com/v1/places:searchText")
-  FIELD_MASK = %w[
-    places.id
-    places.displayName
-    places.formattedAddress
-    places.googleMapsUri
+
+  FIELD_MASK = [
+    "places.id",
+    "places.displayName",
+    "places.formattedAddress",
+    "places.googleMapsUri"
   ].join(",")
 
   def initialize(nomikai)
@@ -16,14 +17,16 @@ class GooglePlacesSearch
   end
 
   def call
-    places = search(RestaurantSearchIntent.new(@nomikai).call)
+    places = search_places(RestaurantSearchIntent.new(@nomikai).call)
     save_candidates(places)
-    places.map { |place| format_place(place) }
+    candidates = candidates_by_place_id
+
+    places.map { |place| present(place, candidates.fetch(place.fetch("id"))) }
   end
 
   private
 
-  def search(query)
+  def search_places(query)
     response = post(build_request(query))
     raise "Google Places request failed (HTTP #{response.code})" unless response.is_a?(Net::HTTPSuccess)
 
@@ -46,7 +49,7 @@ class GooglePlacesSearch
   end
 
   def save_candidates(places)
-    ActiveRecord::Base.transaction do
+    @nomikai.with_lock do
       places.each do |place|
         venue = Venue.find_or_create_by!(google_place_id: place.fetch("id"))
         @nomikai.candidates.find_or_create_by!(venue: venue)
@@ -54,8 +57,14 @@ class GooglePlacesSearch
     end
   end
 
-  def format_place(place)
+  def candidates_by_place_id
+    @nomikai.candidates.includes(:venue).index_by { |candidate| candidate.venue.google_place_id }
+  end
+
+  def present(place, candidate)
     {
+      candidate_id: candidate.id,
+      selected: candidate.selected?,
       google_place_id: place.fetch("id"),
       name: place.dig("displayName", "text"),
       address: place["formattedAddress"],
