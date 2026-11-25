@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       patch :close
       get :recommendations, action: :recommendations_landing, as: :recommendations_landing
       post :recommendations
+      patch "candidates/:candidate_id/select",
+      action: :select_candidate,
+      as: :select_candidate
     end
   end
 
