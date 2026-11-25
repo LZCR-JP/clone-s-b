@@ -1,6 +1,6 @@
 class NomikaisController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_nomikai, only: %i[show destroy close]
+  before_action :set_nomikai, only: %i[show destroy close recommendations]
 
   def index
     @nomikais = current_user.nomikais
@@ -10,6 +10,7 @@ class NomikaisController < ApplicationController
 
   def show
     @participants = @nomikai.participants
+    @preference_summary = NomikaiPreferenceSummary.new(@nomikai).call
   end
 
   def new
@@ -58,6 +59,10 @@ class NomikaisController < ApplicationController
     redirect_to nomikai_path(@nomikai),
                 status: :see_other,
                 notice: "Nomikai is now closed."
+  end
+
+  def recommendations
+    @places = GooglePlacesSearch.new(@nomikai).call
   end
 
   private

@@ -1,0 +1,30 @@
+<div class="container py-5">
+  <div class="show-section">
+    <h1>Restaurant candidates</h1>
+
+    <% if @places.any? %>
+      <% @places.each do |place| %>
+        <article class="mb-4">
+          <h2><%= place[:name] || "Restaurant" %></h2>
+
+          <% if place[:address].present? %>
+            <p><%= place[:address] %></p>
+          <% end %>
+
+          <% if place[:google_maps_uri].present? %>
+            <%= link_to "View on Google Maps",
+                        place[:google_maps_uri],
+                        target: "_blank",
+                        rel: "noopener noreferrer" %>
+          <% end %>
+        </article>
+      <% end %>
+
+      <p translate="no"><strong>Google Maps</strong></p>
+    <% else %>
+      <p>No restaurants were found for this search.</p>
+    <% end %>
+
+    <%= link_to "Back to event", nomikai_path(@nomikai) %>
+  </div>
+</div>

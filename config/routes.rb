@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :nomikais do
     member do
       patch :close
+      post :recommendations
     end
   end
 

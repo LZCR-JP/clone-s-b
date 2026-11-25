@@ -233,6 +233,28 @@
     border: 1px solid #e9caca;
   }
 
+    .btn-find-candidates {
+    background: $brand-orange;
+    border: 1px solid $brand-orange;
+    border-radius: 8px;
+    color: $background-white;
+    padding: 10px 18px;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: $brand-orange-hover;
+      border-color: $brand-orange-hover;
+      color: $background-white;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba(255, 105, 0, 0.35);
+      outline-offset: 2px;
+    }
+  }
+
   @media (max-width: 576px) {
     .event-header {
       flex-direction: column;

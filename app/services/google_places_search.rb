@@ -1,0 +1,65 @@
+require "json"
+require "net/http"
+require "uri"
+
+class GooglePlacesSearch
+  ENDPOINT = URI("https://places.googleapis.com/v1/places:searchText")
+  FIELD_MASK = %w[
+    places.id
+    places.displayName
+    places.formattedAddress
+    places.googleMapsUri
+  ].join(",")
+
+  def initialize(nomikai)
+    @nomikai = nomikai
+  end
+
+  def call
+    places = search(RestaurantSearchIntent.new(@nomikai).call)
+    save_candidates(places)
+    places.map { |place| format_place(place) }
+  end
+
+  private
+
+  def search(query)
+    response = post(build_request(query))
+    raise "Google Places request failed (HTTP #{response.code})" unless response.is_a?(Net::HTTPSuccess)
+
+    JSON.parse(response.body).fetch("places", [])
+  end
+
+  def build_request(query)
+    request = Net::HTTP::Post.new(ENDPOINT)
+    request["Content-Type"] = "application/json"
+    request["X-Goog-Api-Key"] = ENV.fetch("GOOGLE_MAPS_API_KEY")
+    request["X-Goog-FieldMask"] = FIELD_MASK
+    request.body = JSON.generate(textQuery: query, includedType: "restaurant", maxResultCount: 10)
+    request
+  end
+
+  def post(request)
+    Net::HTTP.start(ENDPOINT.host, ENDPOINT.port, use_ssl: true, open_timeout: 5, read_timeout: 20) do |http|
+      http.request(request)
+    end
+  end
+
+  def save_candidates(places)
+    ActiveRecord::Base.transaction do
+      places.each do |place|
+        venue = Venue.find_or_create_by!(google_place_id: place.fetch("id"))
+        @nomikai.candidates.find_or_create_by!(venue: venue)
+      end
+    end
+  end
+
+  def format_place(place)
+    {
+      google_place_id: place.fetch("id"),
+      name: place.dig("displayName", "text"),
+      address: place["formattedAddress"],
+      google_maps_uri: place["googleMapsUri"]
+    }
+  end
+end
