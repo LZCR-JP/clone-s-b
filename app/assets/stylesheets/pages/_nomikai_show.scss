@@ -233,6 +233,125 @@
     border: 1px solid #e9caca;
   }
 
+    .btn-find-candidates {
+    background: $brand-orange;
+    border: 1px solid $brand-orange;
+    border-radius: 8px;
+    color: $background-white;
+    padding: 10px 18px;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: $brand-orange-hover;
+      border-color: $brand-orange-hover;
+      color: $background-white;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba(255, 105, 0, 0.35);
+      outline-offset: 2px;
+    }
+  }
+
+  .recommendations-screen {
+  min-height: 100vh;
+  padding: 48px 20px;
+  background: $background-cream;
+}
+
+.nomikai-show.recommendations-page {
+  .recommendations-header {
+    margin: 28px 0;
+
+    h1 {
+      margin: 8px 0;
+      color: $text-primary;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $text-secondary;
+      margin: 0;
+    }
+  }
+
+  .recommendation-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .recommendation-card,
+  .recommendations-empty {
+    padding: 22px;
+    background: $background-white;
+    border: 1px solid $border-light;
+    border-radius: 14px;
+  }
+
+  .recommendation-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 5px 20px rgba(51, 34, 17, 0.05);
+
+    h2 {
+      margin: 0 0 6px;
+      color: $text-primary;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      color: $text-secondary;
+      font-size: 14px;
+    }
+  }
+
+  .recommendation-map-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    padding: 10px 14px;
+    border: 1px solid $brand-orange;
+    border-radius: 8px;
+    color: $brand-orange;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      background: $brand-orange;
+      color: $background-white;
+    }
+  }
+
+  .google-maps-attribution {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: $background-soft;
+    color: #a65d20;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .recommendations-empty {
+    h2 {
+      color: $text-primary;
+      font-size: 19px;
+    }
+
+    p {
+      margin-bottom: 0;
+      color: $text-secondary;
+    }
+  }
+}
+
   @media (max-width: 576px) {
     .event-header {
       flex-direction: column;
@@ -253,6 +372,28 @@
       button {
         width: 100%;
       }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .recommendations-screen {
+    padding: 28px 14px;
+  }
+
+  .nomikai-show.recommendations-page {
+    .recommendations-header h1 {
+      font-size: 27px;
+    }
+
+    .recommendation-card {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .recommendation-map-link {
+      width: 100%;
+      justify-content: center;
     }
   }
 }

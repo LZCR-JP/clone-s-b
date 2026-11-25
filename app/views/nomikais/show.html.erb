@@ -42,6 +42,45 @@
       </div>
     </div>
 
+    <!-- AI Preference Summary -->
+    <% summary = @preference_summary %>
+    <% restrictions = summary[:dietary_restrictions] %>
+    <% budgets = summary[:participant_budget_maxima] %>
+    <% liked_vibes = summary[:liked_vibes] %>
+    <% disliked_vibes = summary[:disliked_vibes] %>
+
+    <div class="show-section">
+      <h2>Restaurant match preferences</h2>
+
+      <p><strong>Area:</strong> <%= summary[:area] %></p>
+      <p>
+        <strong>Event budget per person:</strong>
+        <%= summary[:event_budget_per_person].present? ? number_to_currency(summary[:event_budget_per_person], unit: "¥", precision: 0) : "Not specified" %>
+      </p>
+      <p><strong>Group size:</strong> <%= summary[:group_size] %></p>
+      <p>
+        <strong>Responses completed:</strong>
+        <%= summary[:participants_completed] %> of <%= summary[:participants_joined] %> joined
+      </p>
+      <p>
+        <strong>Participant budget limits:</strong>
+        <%= budgets.any? ? budgets.map { |amount| number_to_currency(amount, unit: "¥", precision: 0) }.join(", ") : "Not specified" %>
+      </p>
+      <p>
+        <strong>Dietary restrictions:</strong>
+        <%= restrictions.any? ? restrictions.map { |name, count| "#{name} (#{count})" }.join(", ") : "None reported" %>
+      </p>
+      <p><strong>Non-drinkers:</strong> <%= summary[:non_drinkers] %></p>
+      <p>
+        <strong>Liked vibes:</strong>
+        <%= liked_vibes.any? ? liked_vibes.map { |title, count| "#{title} (#{count})" }.join(", ") : "No likes yet" %>
+      </p>
+      <p>
+        <strong>Disliked vibes:</strong>
+        <%= disliked_vibes.any? ? disliked_vibes.map { |title, count| "#{title} (#{count})" }.join(", ") : "No dislikes yet" %>
+      </p>
+    </div>
+
     <!-- Invitation link -->
     <div class="show-section invite-section">
       <h2>Invite your team</h2>
@@ -125,6 +164,13 @@
                     method: :delete,
                     class: "btn-delete-event",
                     form: { data: { turbo_confirm: "Are you sure you want to delete this event?" } } %>
+
+      <%= form_with url: recommendations_nomikai_path(@nomikai),
+                    method: :post,
+                    data: { turbo: false } do %>
+        <%= button_tag "Find restaurant candidates",
+                      class: "btn-find-candidates" %>
+      <% end %>
     </div>
 
   </div>

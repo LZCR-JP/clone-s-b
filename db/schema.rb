@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_25_014034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -99,6 +99,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_24_022245) do
     t.string "google_place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "formatted_address"
+    t.string "price_level"
+    t.text "google_maps_uri"
+    t.decimal "rating", precision: 2, scale: 1
     t.index ["google_place_id"], name: "index_venues_on_google_place_id", unique: true
   end
 
