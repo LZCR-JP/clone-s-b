@@ -75,4 +75,5 @@ end
 # Custom Added gems
 gem "devise"
 
+gem "letter_opener_web", "~> 3.0", group: :development
 gem "ruby_llm", "= 2.2.3"

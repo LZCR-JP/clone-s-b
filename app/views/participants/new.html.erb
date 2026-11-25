@@ -49,7 +49,7 @@
       </p>
 
       <%= simple_form_for @participant,
-          url: join_path(@nomikai.share_token) do |f| %>
+          url: @join_path do |f| %>
 
         <%= f.error_notification %>
 

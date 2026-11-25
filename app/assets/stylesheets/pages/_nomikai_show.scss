@@ -359,6 +359,19 @@
       font-size: 28px;
     }
 
+    .join-code {
+      font-size: 22px;
+    }
+
+    .invite-row {
+      flex-wrap: wrap;
+
+      .invite-row-actions {
+        width: 100%;
+        padding-left: 50px;
+      }
+    }
+
     .event-actions {
       flex-direction: column;
 
