@@ -41,6 +41,35 @@
       </div>
     </div>
 
+    <% if @selected_candidate.present? %>
+      <% place_id = @selected_candidate.venue.google_place_id %>
+      <% maps_url = "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=#{ERB::Util.url_encode(place_id)}" %>
+
+      <section class="participant-event-card participant-selected-restaurant">
+        <div class="selected-restaurant-heading">
+          <div>
+            <span class="section-label">RESTAURANT CHOSEN</span>
+            <h2>Your group’s restaurant is ready</h2>
+            <p>The organizer selected a place for this event.</p>
+          </div>
+
+          <span class="selected-restaurant-badge">Selected</span>
+        </div>
+
+        <%= link_to "Open in Google Maps",
+                    maps_url,
+                    class: "btn-open-selected-restaurant",
+                    target: "_blank",
+                    rel: "noopener noreferrer" %>
+      </section>
+    <% else %>
+      <section class="participant-event-card participant-selected-restaurant">
+        <span class="section-label">RESTAURANT MATCH</span>
+        <h2>The organizer is choosing a place</h2>
+        <p>The selected restaurant will appear here.</p>
+      </section>
+    <% end %>
+
     <!-- Personal preferences -->
     <div class="participant-preferences">
       <div class="preferences-heading">

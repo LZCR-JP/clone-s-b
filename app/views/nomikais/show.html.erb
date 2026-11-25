@@ -42,6 +42,23 @@
       </div>
     </div>
 
+    <% if @selected_candidate.present? %>
+        <% place_id = @selected_candidate.venue.google_place_id %>
+        <% maps_url = "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=#{ERB::Util.url_encode(place_id)}" %>
+
+        <div class="show-section selected-restaurant">
+          <span class="event-label">RESTAURANT SELECTED</span>
+          <h2>Your choice is saved</h2>
+          <p>Open the selected place in Google Maps to share it with your group.</p>
+
+          <%= link_to "View selected restaurant on Google Maps",
+                      maps_url,
+                      class: "selected-restaurant-link",
+                      target: "_blank",
+                      rel: "noopener noreferrer" %>
+        </div>
+      <% end %>
+
     <!-- AI Preference Summary -->
     <% summary = @preference_summary %>
     <% restrictions = summary[:dietary_restrictions] %>

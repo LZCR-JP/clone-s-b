@@ -17,6 +17,60 @@
       color: #77716b;
       font-size: 14px;
     }
+
+      .participant-selected-restaurant {
+      border-color: #f1d6c2;
+      background: #fffaf4;
+
+      h2 {
+        margin: 7px 0;
+        color: #29211d;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+        color: #82766d;
+        font-size: 14px;
+      }
+    }
+
+    .selected-restaurant-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .selected-restaurant-badge {
+      flex-shrink: 0;
+      padding: 6px 11px;
+      border-radius: 20px;
+      background: #e8f7ed;
+      color: #27814c;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .btn-open-selected-restaurant {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 18px;
+      padding: 13px 16px;
+      border-radius: 9px;
+      background: #ff6900;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        background: #e85d00;
+        color: white;
+      }
+    }
   }
 
   .welcome-label,

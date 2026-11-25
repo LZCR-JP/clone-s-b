@@ -11,6 +11,9 @@ class NomikaisController < ApplicationController
   def show
     @participants = @nomikai.participants
     @preference_summary = NomikaiPreferenceSummary.new(@nomikai).call
+    @selected_candidate = @nomikai.candidates
+                                  .includes(:venue)
+                                  .find_by(selected: true)
   end
 
   def new
