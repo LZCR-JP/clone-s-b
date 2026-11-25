@@ -88,6 +88,7 @@ class VibeCardSelector
             .where(
               "max_group_size IS NULL OR max_group_size >= ?", group_size
             )
+            .where.not(image_url: [nil, ""])
   end
 
   def pick_diverse_card(pool, cuisine_counts)
