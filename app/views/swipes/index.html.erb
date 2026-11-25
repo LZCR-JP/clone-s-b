@@ -2,6 +2,14 @@
 
   <h1>Find Your Vibe</h1>
 
+  <% if @show_card_fallback_notice %>
+    <div class="alert alert-warning" role="status">
+      No photo cards match both this event's budget and group size.
+      We're showing other photo cards so your team can still share its preferences.
+      Some cards may fall outside your event limits.
+    </div>
+  <% end %>
+
   <% if @current_card.present? %>
 
     <p>
