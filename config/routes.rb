@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   resources :nomikais do
     member do
       patch :close
-      patch :regenerate_code
-    end
-
-    resources :invitations, only: %i[create destroy] do
-      member do
-        post :resend
-      end
+      get :recommendations, action: :recommendations_landing, as: :recommendations_landing
+      post :recommendations
+      patch "candidates/:candidate_id/select",
+      action: :select_candidate,
+      as: :select_candidate
     end
   end
 
@@ -33,5 +31,6 @@ Rails.application.routes.draw do
 
   resources :participants, only: :show, param: :token do
     resources :swipes, only: %i[index create]
+    resources :candidate_votes, only: :create
   end
 end

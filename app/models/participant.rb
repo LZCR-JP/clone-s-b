@@ -2,6 +2,7 @@ class Participant < ApplicationRecord
   belongs_to :nomikai
   belongs_to :invitation, optional: true
   has_many :swipes, dependent: :destroy
+  has_many :candidate_votes, dependent: :destroy
 
   has_secure_token :token
 

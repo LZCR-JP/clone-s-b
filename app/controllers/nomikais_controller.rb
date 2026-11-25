@@ -1,6 +1,6 @@
 class NomikaisController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_nomikai, only: %i[show destroy close regenerate_code]
+  before_action :set_nomikai, only: %i[show destroy close recommendations recommendations_landing select_candidate]
 
   def index
     @nomikais = current_user.nomikais
@@ -10,7 +10,18 @@ class NomikaisController < ApplicationController
 
   def show
     @participants = @nomikai.participants
-    @invitations = @nomikai.invitations.visible.order(created_at: :desc)
+    @preference_summary = NomikaiPreferenceSummary.new(@nomikai).call
+    @selected_candidate = @nomikai.candidates
+                                  .includes(:venue)
+                                  .find_by(selected: true)
+    @selected_restaurant_name =
+      if @selected_candidate.present?
+        GooglePlaceDetails.new(
+          @selected_candidate.venue.google_place_id
+        ).call
+      end
+    @candidate_vote_counts =
+      @selected_candidate&.candidate_votes&.group(:approved)&.count || {}
   end
 
   def new
@@ -61,11 +72,26 @@ class NomikaisController < ApplicationController
                 notice: "Nomikai is now closed."
   end
 
-  def regenerate_code
-    @nomikai.regenerate_join_code!
-    flash[:invite_notice] = "New join code created. The old code no longer works."
+  def recommendations
+    @places = GooglePlacesSearch.new(@nomikai).call
+  end
 
-    redirect_to nomikai_path(@nomikai, anchor: "invite"), status: :see_other
+  def recommendations_landing
+    redirect_to nomikai_path(@nomikai),
+                notice: "Search results are temporary. Run a new search to refresh them."
+  end
+
+  def select_candidate
+    candidate = @nomikai.candidates.find(params[:candidate_id])
+
+    @nomikai.with_lock do
+      @nomikai.candidates.where.not(id: candidate.id).update_all(selected: false)
+      candidate.update!(selected: true)
+    end
+
+    redirect_to nomikai_path(@nomikai),
+                status: :see_other,
+                notice: "Restaurant selected."
   end
 
   private

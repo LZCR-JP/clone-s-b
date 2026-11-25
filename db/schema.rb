@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_25_000002) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_25_040526) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "candidate_votes", force: :cascade do |t|
+    t.bigint "participant_id", null: false
+    t.bigint "candidate_id", null: false
+    t.boolean "approved", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_votes_on_candidate_id"
+    t.index ["participant_id", "candidate_id"], name: "index_candidate_votes_on_participant_id_and_candidate_id", unique: true
+    t.index ["participant_id"], name: "index_candidate_votes_on_participant_id"
+  end
 
   create_table "candidates", force: :cascade do |t|
     t.bigint "nomikai_id", null: false
@@ -117,6 +128,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_25_000002) do
     t.string "google_place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "formatted_address"
+    t.string "price_level"
+    t.text "google_maps_uri"
+    t.decimal "rating", precision: 2, scale: 1
     t.index ["google_place_id"], name: "index_venues_on_google_place_id", unique: true
   end
 
@@ -134,6 +150,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_25_000002) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "candidate_votes", "candidates"
+  add_foreign_key "candidate_votes", "participants"
   add_foreign_key "candidates", "nomikais"
   add_foreign_key "candidates", "venues"
   add_foreign_key "invitations", "nomikais"
