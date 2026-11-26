@@ -3,16 +3,26 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "pages#home"
+  get "about", to: "pages#about", as: :about
 
   # Host side (logged in)
   resources :nomikais do
+    resources :invitations, only: %i[create destroy] do
+      post :resend, on: :member
+    end
+
     member do
       patch :close
-      get :recommendations, action: :recommendations_landing, as: :recommendations_landing
+
+      get :recommendations,
+          action: :recommendations_landing,
+          as: :recommendations_landing
+
       post :recommendations
+
       patch "candidates/:candidate_id/select",
-      action: :select_candidate,
-      as: :select_candidate
+            action: :select_candidate,
+            as: :select_candidate
     end
   end
 
