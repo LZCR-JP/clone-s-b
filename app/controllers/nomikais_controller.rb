@@ -73,7 +73,17 @@ class NomikaisController < ApplicationController
   end
 
   def recommendations
-    @places = GooglePlacesSearch.new(@nomikai).call
+    service = GooglePlacesSearch.new(
+      @nomikai,
+      detailed: true
+    )
+
+    @places = service.call
+    @used_fallback = service.used_fallback
+    @search_query = service.search_query
+
+    @preference_summary =
+      NomikaiPreferenceSummary.new(@nomikai).call
   end
 
   def recommendations_landing
