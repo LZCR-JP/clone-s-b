@@ -79,12 +79,16 @@
                     data: { swipe_target: "likeButton" } %>
     </div>
   <% else %>
-    <h2>All Done!</h2>
-    <p>Your preferences have been saved.</p>
-    <p>The organizer will use your preferences to find the best venue.</p>
+    <section class="swipe-complete-card" role="status">
+      <span class="swipe-complete-icon" aria-hidden="true">✓</span>
+      <p class="swipe-complete-label">PREFERENCES COMPLETE</p>
 
-    <%= link_to "Back",
-                participant_path(@participant.token),
-                class: "btn btn-primary" %>
+      <h2>All done!</h2>
+      <p>Your preferences have been saved. The organizer can now use them to find a restaurant for your team.</p>
+
+      <%= link_to "Back to your event",
+                  participant_path(@participant.token),
+                  class: "swipe-back-button" %>
+    </section>
   <% end %>
 </div>
