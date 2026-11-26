@@ -15,22 +15,22 @@
     </div>
 
     <div class="join-form-card join-code-card">
-      <%= form_with url: join_code_path, method: :post do |f| %>
+      <%= simple_form_for :join, url: join_code_path, method: :post do |f| %>
         <% error = @error || flash[:alert] %>
 
         <%= f.label :code, "Join code", for: "join_code_input" %>
-        <%= f.text_field :code,
-                         id: "join_code_input",
-                         value: @code,
-                         placeholder: "SWIPE-K7QM2P",
-                         autocomplete: "off",
-                         autocapitalize: "characters",
-                         spellcheck: false,
-                         autofocus: true,
-                         maxlength: 20,
-                         class: ["form-control", "join-code-input", ("is-invalid" if error)],
-                         aria: { invalid: error.present?, describedby: ("join_code_error" if error) },
-                         data: { controller: "code-input", action: "input->code-input#format" } %>
+        <%= f.input_field :code,
+                          id: "join_code_input",
+                          value: @code,
+                          placeholder: "SWIPE-K7QM2P",
+                          autocomplete: "off",
+                          autocapitalize: "characters",
+                          spellcheck: false,
+                          autofocus: true,
+                          maxlength: 20,
+                          class: ["form-control", "join-code-input", ("is-invalid" if error)].compact.join(" "),
+                          aria: { invalid: error.present?, describedby: ("join_code_error" if error) },
+                          data: { controller: "code-input", action: "input->code-input#format" } %>
 
         <% if error %>
           <div id="join_code_error" class="join-code-error">
@@ -40,7 +40,7 @@
           <small class="join-code-hint">It looks like <strong>SWIPE-</strong> followed by 6 letters and numbers.</small>
         <% end %>
 
-        <%= f.submit "Find my event", class: "btn-join-event" %>
+        <%= f.button :submit, "Find my event", class: "btn-join-event" %>
       <% end %>
     </div>
 
