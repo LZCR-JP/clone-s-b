@@ -1,429 +1,501 @@
-// Specific CSS for your home-page
-/* =================================
-   SWIPE & BITE - LANDING PAGE
-================================= */
+/* Swipe & Bite home page */
 
-.sb-navbar,
-.sb-hero,
-.sb-how,
-.sb-benefits,
-.sb-cta,
+.sb-home,
 .sb-footer {
   box-sizing: border-box;
 }
 
-.sb-navbar {
-  min-height: 76px;
-  padding: 16px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fffaf4;
-  border-bottom: 1px solid #f1e7dd;
+.sb-home *,
+.sb-footer * {
+  box-sizing: inherit;
 }
 
-.sb-logo {
-  color: #211b18;
-  font-size: 24px;
+/* Shared home page text */
+
+.sb-eyebrow {
+  margin: 0 0 16px;
+  color: $brand-orange;
+  font-size: 0.78rem;
   font-weight: 800;
-  text-decoration: none;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.sb-logo:hover {
-  color: #ff6900;
-}
-
-.sb-nav-links,
-.sb-nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.sb-nav-links a,
-.sb-nav-actions a,
-.sb-footer a {
-  color: #302722;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
+/* Buttons */
 
 .sb-button {
-  display: inline-block;
-  padding: 16px 27px;
-  border-radius: 40px;
-  background: #ff6900;
-  color: white !important;
-  font-weight: 700;
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  border: 1px solid $brand-orange;
+  border-radius: 999px;
+  background: $brand-orange;
+  color: $background-white !important;
+  font-weight: 800;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: $brand-orange-hover;
+    background: $brand-orange-hover;
+    color: $background-white !important;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($brand-orange, 0.35);
+    outline-offset: 3px;
+  }
 }
 
-.sb-button:hover {
-  background: #e85d00;
-  transform: translateY(-2px);
-}
-
-.sb-button-small {
-  padding: 12px 22px;
-}
-
-/* HERO */
+/* Hero */
 
 .sb-hero {
-  min-height: 520px;
-  padding: 75px 5%;
+  position: relative;
   display: flex;
+  min-height: 620px;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-
+  overflow: hidden;
+  padding: 72px 6%;
   background:
     linear-gradient(
       90deg,
-      rgba(255, 248, 240, 0.98) 5%,
-      rgba(255, 248, 240, 0.85) 45%,
-      rgba(255, 248, 240, 0.1) 100%
+      rgba($background-cream, 0.98) 4%,
+      rgba($background-cream, 0.9) 44%,
+      rgba($background-cream, 0.2) 100%
     ),
     url("https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=1800")
-    center 45% / cover;
+      center 45% / cover;
 }
 
 .sb-hero-content {
-  max-width: 570px;
   position: relative;
   z-index: 2;
-}
-
-.sb-location {
-  display: inline-block;
-  padding: 8px 16px;
-  background: white;
-  border-radius: 30px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  box-shadow: 0 3px 12px #00000010;
+  width: 54%;
+  max-width: 620px;
 }
 
 .sb-hero h1 {
-  font-size: clamp(40px, 5vw, 65px);
-  line-height: 1.08;
+  margin: 0 0 22px;
+  color: $text-primary;
+  font-size: 4.5rem;
   font-weight: 850;
-  color: #211b18;
-  margin: 0 0 24px;
-  letter-spacing: -2px;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+
+  span {
+    color: $brand-orange;
+  }
 }
 
-.sb-hero h1 span,
-.sb-cta h2 span {
-  color: #ff6900;
-}
-
-.sb-hero-content > p {
-  max-width: 440px;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #39302b;
-  margin-bottom: 28px;
+.sb-hero-description {
+  max-width: 500px;
+  margin: 0 0 30px;
+  color: $text-primary;
+  font-size: 1.2rem;
+  line-height: 1.65;
 }
 
 .sb-hero-actions {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .sb-text-link {
+  color: $text-primary;
+  font-weight: 700;
   text-decoration: none;
-  color: #211b18;
-  font-weight: 600;
+
+  &:hover {
+    color: $brand-orange;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($brand-orange, 0.35);
+    outline-offset: 4px;
+  }
 }
 
-/* SWIPE CARD PREVIEW */
+/* Restaurant card preview */
 
 .sb-phone-area {
-  width: 390px;
-  min-height: 390px;
   position: relative;
-  flex-shrink: 0;
   display: flex;
-  justify-content: center;
+  width: 42%;
+  max-width: 440px;
+  min-height: 450px;
+  flex: 0 0 auto;
   align-items: center;
+  justify-content: center;
 }
 
 .sb-restaurant-card {
-  width: 260px;
-  padding: 12px;
-  background: white;
-  border-radius: 22px;
-  box-shadow: 0 20px 55px #00000030;
-  transform: rotate(-7deg);
   position: relative;
   z-index: 2;
-}
+  width: 270px;
+  padding: 12px;
+  transform: rotate(-6deg);
+  border: 1px solid rgba($border-light, 0.8);
+  border-radius: 24px;
+  background: $background-white;
+  box-shadow: 0 22px 60px rgba($text-primary, 0.22);
 
-.sb-restaurant-card > img {
-  width: 100%;
-  height: 195px;
-  object-fit: cover;
-  border-radius: 15px;
+  > img {
+    display: block;
+    width: 100%;
+    height: 195px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
 }
 
 .sb-card-details {
-  padding: 12px 5px;
-}
+  padding: 13px 6px 7px;
 
-.sb-card-details h3 {
-  font-size: 21px;
-  margin: 10px 0 5px;
-}
+  h2 {
+    margin: 8px 0 7px;
+    color: $text-primary;
+    font-size: 1.3rem;
+  }
 
-.sb-card-details p {
-  font-size: 13px;
-  margin: 5px 0;
-  color: #665c54;
+  p {
+    margin: 5px 0;
+    color: $text-secondary;
+    font-size: 0.85rem;
+  }
 }
 
 .sb-match {
-  color: #ed6900;
-  font-size: 12px;
-  font-weight: 700;
+  color: $brand-orange;
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .sb-card-actions {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 8px;
-  font-size: 28px;
-  color: #888;
+  justify-content: space-around;
+  padding: 8px 4px 3px;
+  color: $text-muted;
+  font-size: 2rem;
+}
+
+.sb-card-dislike {
+  line-height: 1;
 }
 
 .sb-heart {
-  background: #ff6900;
-  color: white;
+  display: grid;
   width: 48px;
   height: 48px;
-  display: grid;
   place-items: center;
   border-radius: 50%;
+  background: $brand-orange;
+  color: $background-white;
+  font-size: 1.5rem;
 }
 
 .sb-floating-card {
   position: absolute;
+  top: 58px;
   right: 0;
-  top: 45px;
   width: 190px;
-  height: 290px;
-  background: white;
+  height: 300px;
+  transform: rotate(10deg);
   padding: 10px;
-  border-radius: 20px;
-  transform: rotate(12deg);
-  box-shadow: 0 15px 35px #00000025;
-}
+  border: 1px solid rgba($border-light, 0.8);
+  border-radius: 22px;
+  background: $background-white;
+  box-shadow: 0 16px 40px rgba($text-primary, 0.18);
 
-.sb-floating-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+  }
 }
 
 .sb-swipe-note {
   position: absolute;
-  right: 0;
-  top: 0;
-  color: #211b18;
-  font-size: 22px;
-  font-weight: 800;
-  font-style: italic;
   z-index: 3;
+  top: 8px;
+  right: 0;
   transform: rotate(7deg);
+  color: $text-primary;
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 850;
+  line-height: 1.1;
 }
 
-/* HOW IT WORKS */
+/* How it works */
 
 .sb-how {
-  padding: 65px 5%;
-  background: #fffaf4;
+  padding: 76px 6%;
+  background: $background-cream;
   text-align: center;
 }
 
-.sb-how h2,
-.sb-benefits h2 {
-  font-size: 36px;
-  font-weight: 800;
-  color: #211b18;
-  margin-bottom: 45px;
+.sb-section-heading {
+  max-width: 720px;
+  margin: 0 auto 44px;
+
+  h2 {
+    margin: 0;
+    color: $text-primary;
+    font-size: 2.8rem;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+  }
 }
 
 .sb-steps {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  max-width: 1120px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  max-width: 1150px;
-  margin: auto;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .sb-step {
-  flex: 1;
-  max-width: 280px;
+  padding: 28px;
+  border: 1px solid $border-light;
+  border-radius: 22px;
+  background: $background-white;
+
+  h3 {
+    margin: 0 0 10px;
+    color: $text-primary;
+    font-size: 1.3rem;
+  }
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+    line-height: 1.65;
+  }
+}
+
+.sb-step-number {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: $brand-orange;
+  font-size: 0.85rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
 }
 
 .sb-step-icon {
-  font-size: 65px;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
+  font-size: 2.5rem;
 }
 
-.sb-step h3 {
-  font-size: 21px;
-  color: #211b18;
-}
-
-.sb-step h3 span {
-  background: #ff6900;
-  color: white;
-  border-radius: 50%;
-  padding: 6px 12px;
-  margin-right: 7px;
-}
-
-.sb-step p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #514740;
-}
-
-.sb-step-arrow {
-  font-size: 35px;
-  color: #aaa;
-}
-
-/* BENEFITS */
+/* Benefits */
 
 .sb-benefits {
-  padding: 65px 5%;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 45px;
-  align-items: center;
-  background: #fffaf4;
+  padding: 76px 6%;
+  background: $background-white;
 }
 
-.sb-benefits h2 {
-  margin-bottom: 35px;
+.sb-benefits-content {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  h2 {
+    max-width: 650px;
+    margin: 0 0 14px;
+    color: $text-primary;
+    font-size: 2.8rem;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+  }
+}
+
+.sb-benefits-intro {
+  max-width: 700px;
+  margin: 0 0 32px;
+  color: $text-secondary;
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
 .sb-benefit-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-.sb-benefit-grid div {
-  background: #fff0df;
-  padding: 20px;
+.sb-benefit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid $border-light;
   border-radius: 16px;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.5;
+  background: $background-cream;
+  color: $text-primary;
+  font-weight: 700;
+
+  span:first-child {
+    font-size: 1.35rem;
+  }
 }
 
-.sb-team-photo {
-  min-height: 300px;
-  border-radius: 25px;
-  background:
-    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000")
-    center / cover;
-}
-
-/* FINAL CTA */
+/* Final call to action */
 
 .sb-cta {
-  margin: 30px 3%;
-  padding: 65px 6%;
-  border-radius: 30px;
+  margin: 0;
+  padding: 68px 6%;
   background:
-    linear-gradient(90deg, #ffead5 0%, #ffead5dd 48%, #00000010 100%),
+    linear-gradient(
+      90deg,
+      rgba($background-cream, 0.97),
+      rgba($background-cream, 0.82)
+    ),
     url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1400")
-    center / cover;
+      center / cover;
+  text-align: center;
+
+  h2 {
+    max-width: 760px;
+    margin: 0 auto 14px;
+    color: $text-primary;
+    font-size: 2.8rem;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+  }
+
+  > p:not(.sb-eyebrow) {
+    max-width: 620px;
+    margin: 0 auto 26px;
+    color: $text-secondary;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
 }
 
-.sb-cta h2 {
-  font-size: 38px;
-  line-height: 1.2;
-  color: #211b18;
-}
-
-.sb-cta p {
-  margin: 20px 0;
-  font-size: 16px;
-  color: #39302b;
-}
-
-/* FOOTER */
+/* Footer */
 
 .sb-footer {
-  padding: 35px 5%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: #fffaf4;
-  border-top: 1px solid #f1e7dd;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 28px 6%;
+  border-top: 1px solid $border-light;
+  background: $background-cream;
 }
 
-.sb-footer > div {
+.sb-logo {
+  color: $text-primary;
+  font-size: 1.15rem;
+  font-weight: 850;
+  text-decoration: none;
+
+  &:hover {
+    color: $brand-orange;
+  }
+}
+
+.sb-footer nav {
   display: flex;
-  gap: 25px;
+  gap: 24px;
+  flex-wrap: wrap;
+
+  a {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-orange;
+    }
+  }
 }
 
 .sb-footer > span {
-  font-size: 13px;
-  color: #74685f;
+  color: $text-secondary;
+  font-size: 0.85rem;
 }
 
-/* MOBILE RESPONSIVENESS */
+/* Responsive layout */
 
-@media (max-width: 768px) {
-  .sb-navbar {
-    padding: 15px 5%;
-  }
-
-  .sb-nav-links {
-    display: none;
-  }
-
-  .sb-logo {
-    font-size: 19px;
-  }
-
-  .sb-nav-actions {
-    gap: 12px;
-  }
-
+@media (max-width: 900px) {
   .sb-hero {
+    min-height: 560px;
+    gap: 20px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .sb-hero-content {
+    width: 52%;
+  }
+
+  .sb-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .sb-phone-area {
+    width: 45%;
+    transform: scale(0.88);
+  }
+
+  .sb-restaurant-card {
+    width: 245px;
+  }
+
+  .sb-floating-card {
+    right: -12px;
+  }
+
+  .sb-section-heading h2,
+  .sb-benefits-content h2,
+  .sb-cta h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .sb-hero {
+    min-height: auto;
     flex-direction: column;
+    gap: 20px;
+    padding: 54px 20px 36px;
+    background:
+      linear-gradient(
+        rgba($background-cream, 0.88),
+        rgba($background-cream, 0.94)
+      ),
+      url("https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=1200")
+        center / cover;
     text-align: center;
-    padding: 55px 6%;
-    background-position: center;
   }
 
   .sb-hero-content {
     width: 100%;
+    max-width: 560px;
   }
 
   .sb-hero h1 {
-    font-size: 43px;
+    font-size: 3.2rem;
   }
 
-  .sb-hero-content > p {
-    margin-left: auto;
+  .sb-hero-description {
     margin-right: auto;
+    margin-left: auto;
   }
 
   .sb-hero-actions {
@@ -432,55 +504,92 @@
 
   .sb-phone-area {
     width: 100%;
-    min-height: 360px;
+    min-height: 380px;
+    max-width: none;
+    transform: none;
+  }
+
+  .sb-restaurant-card {
+    width: 260px;
+  }
+
+  .sb-floating-card {
+    right: 0;
+    width: 165px;
+    height: 270px;
+  }
+
+  .sb-swipe-note {
+    right: 0;
+  }
+
+  .sb-how,
+  .sb-benefits {
+    padding: 56px 20px;
+  }
+
+  .sb-section-heading h2,
+  .sb-benefits-content h2,
+  .sb-cta h2 {
+    font-size: 2.1rem;
   }
 
   .sb-steps {
-    flex-direction: column;
-  }
-
-  .sb-step-arrow {
-    transform: rotate(90deg);
-  }
-
-  .sb-benefits {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .sb-benefit-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sb-team-photo {
-    min-height: 250px;
+  .sb-step {
+    padding: 23px;
   }
 
   .sb-cta {
-    padding: 40px 7%;
-    background-position: center;
-  }
-
-  .sb-cta h2 {
-    font-size: 30px;
+    padding: 54px 20px;
   }
 
   .sb-footer {
     flex-direction: column;
+    padding: 28px 20px;
     text-align: center;
+  }
+
+  .sb-footer nav {
+    justify-content: center;
   }
 }
 
 @media (max-width: 420px) {
-  .sb-benefit-grid {
-    grid-template-columns: 1fr;
+  .sb-hero h1 {
+    font-size: 2.55rem;
   }
 
-  .sb-hero h1 {
-    font-size: 36px;
+  .sb-hero-actions {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .sb-hero-actions .sb-button {
+    width: 100%;
   }
 
   .sb-phone-area {
-    transform: scale(0.85);
-    margin: -20px 0;
+    min-height: 340px;
+  }
+
+  .sb-restaurant-card {
+    width: 235px;
+  }
+
+  .sb-floating-card {
+    width: 140px;
+    height: 235px;
+  }
+
+  .sb-swipe-note {
+    font-size: 1.1rem;
+  }
+
+  .sb-benefit-grid {
+    grid-template-columns: 1fr;
   }
 }
