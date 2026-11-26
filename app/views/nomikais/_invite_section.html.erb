@@ -61,17 +61,20 @@
 
     <!-- Email invite -->
     <div class="invite-panel" role="tabpanel" data-tabs-target="panel" data-tab="email" hidden>
-      <%= form_with url: nomikai_invitations_path(nomikai), class: "invite-email-form" do |f| %>
-        <%= f.label :emails, "Teammate emails", for: "invite_emails" %>
-        <%= f.text_area :emails,
-                        id: "invite_emails",
-                        rows: 3,
-                        required: true,
-                        class: "form-control",
-                        placeholder: "aiko@company.com, ken@company.com" %>
+      <%= simple_form_for :invitation,
+                          url: nomikai_invitations_path(nomikai),
+                          method: :post,
+                          html: { class: "invite-email-form" } do |f| %>
+        <%= f.input :emails,
+                    as: :text,
+                    label: "Teammate emails",
+                    required: true,
+                    placeholder: "aiko@company.com, ken@company.com",
+                    input_html: { id: "invite_emails", rows: 3, class: "form-control" } %>
+
         <div class="invite-form-footer">
           <small>Separate emails with commas or new lines (up to <%= InvitationSender::MAX_PER_REQUEST %> at a time).</small>
-          <%= f.submit "Send invites", class: "btn-copy" %>
+          <%= f.button :submit, "Send invites", class: "btn-copy" %>
         </div>
       <% end %>
 

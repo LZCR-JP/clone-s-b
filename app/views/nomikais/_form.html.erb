@@ -144,30 +144,29 @@
                   } %>
             I'm flexible
           </label>
-        </div>
+          </div>
 
-        <%# INFORMATION BOX %>
-        <div class="event-info-box">
-          <span>💡</span>
-          <p>
-            Once your event is created, you can share an invitation
-            link with colleagues. They can join and swipe through
-            restaurant preferences.
-          </p>
-        </div>
+          <%# INFORMATION BOX %>
+          <div class="event-info-box">
+            <span>💡</span>
+            <p>
+              Once your event is created, you can share an invitation
+              link with colleagues. They can join and swipe through
+              restaurant preferences.
+            </p>
+          </div>
 
-        <%# SUBMIT %>
-        <div class="event-form-actions">
-          <%= f.submit(
-                @nomikai.persisted? ? "Update Dining Event →" : "Create Dining Event →",
-                class: "event-submit-btn"
-              ) %>
+          <%# SUBMIT %>
+          <div class="event-form-actions">
+            <%= f.submit(
+                  @nomikai.persisted? ? "Update Dining Event →" : "Create Dining Event →",
+                  class: "event-submit-btn"
+                ) %>
 
-          <%= link_to "Cancel",
-                @nomikai.persisted? ? nomikai_path(@nomikai) : nomikais_path,
-                class: "event-cancel-btn" %>
-        </div>
-
+            <%= link_to "Cancel",
+                  @nomikai.persisted? ? nomikai_path(@nomikai) : nomikais_path,
+                  class: "event-cancel-btn" %>
+          </div>
       <% end %>
     </div>
 

@@ -227,12 +227,11 @@
                     class: "btn-delete-event",
                     form: { data: { turbo_confirm: "Are you sure you want to delete this event?" } } %>
 
-      <%= form_with url: recommendations_nomikai_path(@nomikai),
-                    method: :post,
-                    data: { turbo: false } do %>
-        <%= button_tag "Find restaurant candidates",
-                       class: "btn-find-candidates" %>
-      <% end %>
+      <%= button_to "Find restaurant candidates",
+              recommendations_nomikai_path(@nomikai),
+              method: :post,
+              class: "btn-find-candidates",
+              form: { data: { turbo: false } } %>
     </div>
 
   </div>
