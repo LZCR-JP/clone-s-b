@@ -25,36 +25,20 @@ class SwipesController < ApplicationController
   end
 
   def create
-    @nomikai.with_lock do
-      if @nomikai.status != "open"
-        return render plain: "This nomikai is closed.",
-                      status: :forbidden
-      end
-
-      card = @nomikai.nomikai_vibe_cards.find(
-        params[:nomikai_vibe_card_id]
-      )
-
-      return head :unprocessable_entity unless ["true", "false"].include?(params[:liked].to_s)
-
-      swipe = @participant.swipes.find_or_initialize_by(
-        nomikai_vibe_card: card
-      )
-
-      swipe.liked = params[:liked] == "true"
-      swipe.save!
-
-      if @participant.swipes.count ==
-         @nomikai.nomikai_vibe_cards.count
-
-        @participant.update!(
-          completed_at: @participant.completed_at || Time.current
-        )
-      end
-    end
+    SwipeProcessor.new(
+      participant: @participant,
+      nomikai: @nomikai,
+      card_id: params[:nomikai_vibe_card_id],
+      liked: params[:liked]
+    ).call
 
     redirect_to participant_swipes_path(@participant.token),
                 status: :see_other
+  rescue SwipeProcessor::InvalidChoice
+    head :unprocessable_entity
+  rescue SwipeProcessor::ClosedNomikai
+    render plain: "This nomikai is closed.",
+           status: :forbidden
   end
 
   private
