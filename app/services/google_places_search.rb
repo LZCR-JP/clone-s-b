@@ -3,47 +3,265 @@ require "net/http"
 require "uri"
 
 class GooglePlacesSearch
-  ENDPOINT = URI("https://places.googleapis.com/v1/places:searchText")
+  ENDPOINT = URI(
+    "https://places.googleapis.com/v1/places:searchText"
+  )
 
-  FIELD_MASK = [
+  BASIC_FIELDS = [
     "places.id",
     "places.displayName",
     "places.formattedAddress",
-    "places.googleMapsUri"
-  ].join(",")
+    "places.googleMapsUri",
+    "places.primaryType",
+    "places.primaryTypeDisplayName",
+    "places.businessStatus",
+    "places.attributions"
+  ].freeze
 
-  def initialize(nomikai)
+  DETAILED_FIELDS = [
+    "places.priceLevel",
+    "places.priceRange",
+    "places.rating",
+    "places.userRatingCount",
+    "places.goodForGroups",
+    "places.outdoorSeating",
+    "places.reservable",
+    "places.servesVegetarianFood",
+    "places.servesDinner",
+    "places.nationalPhoneNumber",
+    "places.websiteUri"
+  ].freeze
+
+  AREA_CENTERS = {
+    "shibuya"    => [35.6580, 139.7016],
+    "渋谷"        => [35.6580, 139.7016],
+    "shinjuku"   => [35.6909, 139.7003],
+    "新宿"        => [35.6909, 139.7003],
+    "roppongi"   => [35.6635, 139.7310],
+    "六本木"      => [35.6635, 139.7310],
+    "ginza"      => [35.6717, 139.7650],
+    "銀座"        => [35.6717, 139.7650],
+    "marunouchi" => [35.6812, 139.7671],
+    "丸の内"      => [35.6812, 139.7671],
+    "ebisu"      => [35.6467, 139.7101],
+    "恵比寿"      => [35.6467, 139.7101],
+    "ikebukuro"  => [35.7295, 139.7109],
+    "池袋"        => [35.7295, 139.7109],
+    "akasaka"    => [35.6722, 139.7360],
+    "赤坂"        => [35.6722, 139.7360],
+    "toranomon"  => [35.6702, 139.7498],
+    "虎ノ門"      => [35.6702, 139.7498],
+    "meguro"     => [35.6339, 139.7158],
+    "目黒"        => [35.6339, 139.7158]
+  }.freeze
+
+  SEARCH_HALF_WIDTH_KM = 0.8
+
+  attr_reader :used_fallback, :search_query
+
+  def initialize(nomikai, detailed: false)
     @nomikai = nomikai
+    @detailed = detailed
   end
 
   def call
-    places = search_places(RestaurantSearchIntent.new(@nomikai).call)
+    query = RestaurantSearchIntent.new(@nomikai).call
+
+    Rails.logger.info("Restaurant search: #{query}")
+
+    places = search_with_fallback(query)
+
     save_candidates(places)
+
     candidates = candidates_by_place_id
 
-    places.map { |place| present(place, candidates.fetch(place.fetch("id"))) }
+    places.map do |place|
+      present(
+        place,
+        candidates.fetch(place.fetch("id"))
+      )
+    end
   end
 
   private
 
+  def search_with_fallback(query)
+    @used_fallback = false
+    @search_query = query
+
+    places = search_places(query)
+
+    return places if places.any?
+
+    restrictions = @nomikai.participants
+                          .flat_map(&:restrictions)
+                          .compact
+                          .reject(&:blank?)
+
+    return places if restrictions.any?
+
+    @used_fallback = true
+    @search_query = fallback_query
+
+    Rails.logger.info("Fallback search: #{@search_query}")
+
+    search_places(@search_query)
+  end
+
+  def fallback_query
+    terms = [@nomikai.area]
+
+    if @nomikai.group_size.to_i >= 6
+      terms << "着席 宴会 グループ向け"
+    else
+      terms << "グループ向け ディナー"
+    end
+
+    if @nomikai.group_size.present?
+      terms << "#{@nomikai.group_size}名"
+    end
+
+    if effective_budget.present?
+      terms << "#{effective_budget}円以内"
+    end
+
+    terms.compact.join(" ")
+  end
+
+  def field_mask
+    fields = BASIC_FIELDS.dup
+    fields.concat(DETAILED_FIELDS) if @detailed
+    fields.join(",")
+  end
+
   def search_places(query)
     response = post(build_request(query))
-    raise "Google Places request failed (HTTP #{response.code})" unless response.is_a?(Net::HTTPSuccess)
+
+    unless response.is_a?(Net::HTTPSuccess)
+      raise "Google Places request failed (HTTP #{response.code})"
+    end
 
     JSON.parse(response.body).fetch("places", [])
   end
 
   def build_request(query)
     request = Net::HTTP::Post.new(ENDPOINT)
+
     request["Content-Type"] = "application/json"
-    request["X-Goog-Api-Key"] = ENV.fetch("GOOGLE_MAPS_API_KEY")
-    request["X-Goog-FieldMask"] = FIELD_MASK
-    request.body = JSON.generate(textQuery: query, includedType: "restaurant", maxResultCount: 10)
+    request["X-Goog-Api-Key"] =
+      ENV.fetch("GOOGLE_MAPS_API_KEY")
+
+    request["X-Goog-FieldMask"] = field_mask
+
+    payload = {
+      textQuery: query,
+      includedType: "restaurant",
+      pageSize: 10,
+      languageCode: "ja",
+      regionCode: "JP",
+      rankPreference: "RELEVANCE"
+    }
+
+    levels = budget_price_levels
+    payload[:priceLevels] = levels if levels.any?
+
+    restriction = location_restriction
+    payload[:locationRestriction] = restriction if restriction
+
+    Rails.logger.info(
+      "Google Places search payload: #{payload.to_json}"
+    )
+
+    request.body = JSON.generate(payload)
+
     request
   end
 
+  def effective_budget
+    budgets = @nomikai.participants.pluck(:budget_max)
+
+    (budgets + [@nomikai.budget_per_person])
+      .compact
+      .min
+  end
+
+  def budget_price_levels
+    budget = effective_budget
+
+    return [] if budget.nil?
+
+    case budget
+    when 0..3000
+      ["PRICE_LEVEL_INEXPENSIVE"]
+
+    when 3001..6000
+      [
+        "PRICE_LEVEL_INEXPENSIVE",
+        "PRICE_LEVEL_MODERATE"
+      ]
+
+    when 6001..10000
+      [
+        "PRICE_LEVEL_INEXPENSIVE",
+        "PRICE_LEVEL_MODERATE",
+        "PRICE_LEVEL_EXPENSIVE"
+      ]
+
+    else
+      []
+    end
+  end
+
+  def area_center
+    if @nomikai.latitude.present? &&
+       @nomikai.longitude.present?
+
+      return [
+        @nomikai.latitude.to_f,
+        @nomikai.longitude.to_f
+      ]
+    end
+
+    AREA_CENTERS[@nomikai.area.to_s.strip.downcase]
+  end
+
+  def location_restriction
+    center = area_center
+
+    unless center
+      Rails.logger.warn("Search area coordinates unavailable")
+      return nil
+    end
+
+    lat, lng = center
+
+    lat_delta = SEARCH_HALF_WIDTH_KM / 111.0
+
+    lng_delta = SEARCH_HALF_WIDTH_KM /
+      (111.0 * Math.cos(lat * Math::PI / 180))
+
+    {
+      rectangle: {
+        low: {
+          latitude: lat - lat_delta,
+          longitude: lng - lng_delta
+        },
+        high: {
+          latitude: lat + lat_delta,
+          longitude: lng + lng_delta
+        }
+      }
+    }
+  end
+
   def post(request)
-    Net::HTTP.start(ENDPOINT.host, ENDPOINT.port, use_ssl: true, open_timeout: 5, read_timeout: 20) do |http|
+    Net::HTTP.start(
+      ENDPOINT.host,
+      ENDPOINT.port,
+      use_ssl: true,
+      open_timeout: 5,
+      read_timeout: 20
+    ) do |http|
       http.request(request)
     end
   end
@@ -51,14 +269,23 @@ class GooglePlacesSearch
   def save_candidates(places)
     @nomikai.with_lock do
       places.each do |place|
-        venue = Venue.find_or_create_by!(google_place_id: place.fetch("id"))
-        @nomikai.candidates.find_or_create_by!(venue: venue)
+        venue = Venue.find_or_create_by!(
+          google_place_id: place.fetch("id")
+        )
+
+        @nomikai.candidates.find_or_create_by!(
+          venue: venue
+        )
       end
     end
   end
 
   def candidates_by_place_id
-    @nomikai.candidates.includes(:venue).index_by { |candidate| candidate.venue.google_place_id }
+    @nomikai.candidates
+            .includes(:venue)
+            .index_by do |candidate|
+      candidate.venue.google_place_id
+    end
   end
 
   def present(place, candidate)
@@ -68,7 +295,30 @@ class GooglePlacesSearch
       google_place_id: place.fetch("id"),
       name: place.dig("displayName", "text"),
       address: place["formattedAddress"],
-      google_maps_uri: place["googleMapsUri"]
+      google_maps_uri: place["googleMapsUri"],
+
+      cuisine: place["primaryType"],
+      category: place.dig(
+        "primaryTypeDisplayName", "text"
+      ),
+
+      business_status: place["businessStatus"],
+      price_level: place["priceLevel"],
+      price_range: place["priceRange"],
+
+      rating: place["rating"],
+      review_count: place["userRatingCount"],
+
+      good_for_groups: place["goodForGroups"],
+      outdoor_seating: place["outdoorSeating"],
+      reservable: place["reservable"],
+
+      vegetarian_food: place["servesVegetarianFood"],
+      serves_dinner: place["servesDinner"],
+
+      phone_number: place["nationalPhoneNumber"],
+      website: place["websiteUri"],
+      attributions: place["attributions"]
     }
   end
 end
