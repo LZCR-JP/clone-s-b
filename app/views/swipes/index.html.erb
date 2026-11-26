@@ -1,5 +1,4 @@
-<div class="container mt-4">
-
+<div class="container mt-4 swipes-page" data-controller="swipe">
   <h1>Find Your Vibe</h1>
 
   <% if @show_card_fallback_notice %>
@@ -11,64 +10,81 @@
   <% end %>
 
   <% if @current_card.present? %>
-
-    <p>
-      <%= @completed_count %> /
-      <%= @total_cards %> completed
-    </p>
+    <p><%= @completed_count %> / <%= @total_cards %> completed</p>
 
     <div class="progress mb-4">
-      <div class="progress-bar"
-           style="width: <%= @completed_count.to_f / @total_cards * 100 %>%">
+      <div
+        class="progress-bar"
+        style="width: <%= @completed_count.to_f / @total_cards * 100 %>%">
       </div>
     </div>
 
-    <div class="card p-4">
+    <div class="swipe-card-stack">
+      <div class="swipe-card-shadow swipe-card-shadow--back" aria-hidden="true"></div>
+      <div class="swipe-card-shadow swipe-card-shadow--front" aria-hidden="true"></div>
 
-      <% if @current_card.vibe_card.image_url.present? %>
-        <%= image_tag @current_card.vibe_card.image_url,
-                      class: "img-fluid rounded mb-3" %>
-      <% end %>
+      <article
+        class="card p-4 swipe-card"
+        data-swipe-target="card"
+        data-action="
+          pointerdown->swipe#start
+          pointermove->swipe#move
+          pointerup->swipe#finish
+          pointercancel->swipe#cancel">
 
-      <h2><%= @current_card.vibe_card.title %></h2>
+        <div
+          class="swipe-stamp swipe-stamp--like"
+          data-swipe-target="likeStamp"
+          aria-hidden="true">
+          LIKE
+        </div>
 
-      <p><%= @current_card.vibe_card.description %></p>
+        <div
+          class="swipe-stamp swipe-stamp--nope"
+          data-swipe-target="dislikeStamp"
+          aria-hidden="true">
+          NOPE
+        </div>
 
-      <div class="d-flex gap-3">
+        <% if @current_card.vibe_card.image_url.present? %>
+          <%= image_tag @current_card.vibe_card.image_url,
+                        class: "img-fluid rounded mb-3",
+                        alt: @current_card.vibe_card.title %>
+        <% end %>
 
-        <%= button_to "Dislike",
-                      participant_swipes_path(@participant.token),
-                      method: :post,
-                      params: {
-                        nomikai_vibe_card_id: @current_card.id,
-                        liked: false
-                      },
-                      class: "btn btn-danger" %>
-
-        <%= button_to "Like",
-                      participant_swipes_path(@participant.token),
-                      method: :post,
-                      params: {
-                        nomikai_vibe_card_id: @current_card.id,
-                        liked: true
-                      },
-                      class: "btn btn-success" %>
-
-      </div>
+        <h2><%= @current_card.vibe_card.title %></h2>
+        <p><%= @current_card.vibe_card.description %></p>
+      </article>
     </div>
 
+    <div class="d-flex gap-3 swipe-buttons">
+      <%= button_to "Dislike",
+                    participant_swipes_path(@participant.token),
+                    method: :post,
+                    params: {
+                      nomikai_vibe_card_id: @current_card.id,
+                      liked: false
+                    },
+                    class: "btn btn-danger",
+                    data: { swipe_target: "dislikeButton" } %>
+
+      <%= button_to "Like",
+                    participant_swipes_path(@participant.token),
+                    method: :post,
+                    params: {
+                      nomikai_vibe_card_id: @current_card.id,
+                      liked: true
+                    },
+                    class: "btn btn-success",
+                    data: { swipe_target: "likeButton" } %>
+    </div>
   <% else %>
-
     <h2>All Done!</h2>
-
     <p>Your preferences have been saved.</p>
-
-    <p>The organizer will use your preferences
-       to find the best venue.</p>
+    <p>The organizer will use your preferences to find the best venue.</p>
 
     <%= link_to "Back",
                 participant_path(@participant.token),
                 class: "btn btn-primary" %>
-
   <% end %>
 </div>

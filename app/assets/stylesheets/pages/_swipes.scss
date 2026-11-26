@@ -1,0 +1,131 @@
+.swipes-page {
+  max-width: 620px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.swipe-card-stack {
+  position: relative;
+  isolation: isolate;
+  margin: 28px 0 24px;
+}
+
+.swipe-card-shadow {
+  position: absolute;
+  inset: 8px 14px -8px;
+  border: 1px solid $border-light;
+  border-radius: 20px;
+  background: $background-white;
+  box-shadow: 0 8px 22px rgba(41, 33, 29, 0.08);
+  pointer-events: none;
+
+  &--front {
+    z-index: 1;
+    transform: translateY(7px) scale(0.975);
+  }
+
+  &--back {
+    z-index: 0;
+    transform: translateY(14px) scale(0.95);
+    opacity: 0.75;
+  }
+}
+
+.swipe-card {
+  position: relative;
+  z-index: 2;
+  min-height: 400px;
+  overflow: hidden;
+  border: 1px solid $border-light;
+  border-radius: 20px;
+  background: $background-white;
+  box-shadow: 0 12px 30px rgba(41, 33, 29, 0.12);
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  will-change: transform;
+
+  img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  h2 {
+    margin-top: 8px;
+    color: $text-primary;
+  }
+
+  p {
+    color: $text-secondary;
+  }
+
+  &.is-dragging {
+    cursor: grabbing;
+    transition: none;
+  }
+}
+
+.swipe-stamp {
+  position: absolute;
+  top: 24px;
+  z-index: 3;
+  padding: 6px 12px;
+  border: 4px solid;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+
+  &--like {
+    left: 22px;
+    color: $success;
+    border-color: $success;
+    transform: rotate(-12deg);
+  }
+
+  &--nope {
+    right: 22px;
+    color: $danger;
+    border-color: $danger;
+    transform: rotate(12deg);
+  }
+}
+
+.swipe-buttons {
+  form {
+    flex: 1;
+    margin: 0;
+  }
+
+  button {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 600px) {
+  .swipes-page {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .swipe-card {
+    min-height: 340px;
+
+    img {
+      max-height: 300px;
+    }
+  }
+
+  .swipe-stamp {
+    top: 18px;
+    font-size: 24px;
+  }
+}
