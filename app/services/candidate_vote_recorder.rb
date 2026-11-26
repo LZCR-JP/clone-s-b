@@ -8,6 +8,8 @@ class CandidateVoteRecorder
   end
 
   def call
+    approval = approved_value
+
     candidate = @participant.nomikai.candidates.find_by!(
       id: @candidate_id,
       selected: true
@@ -16,7 +18,7 @@ class CandidateVoteRecorder
     @vote = @participant.candidate_votes.find_or_initialize_by(
       candidate: candidate
     )
-    @vote.update!(approved: approved_value)
+    @vote.update!(approved: approval)
     @vote
   end
 
